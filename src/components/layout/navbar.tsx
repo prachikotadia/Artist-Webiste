@@ -52,8 +52,14 @@ export function Navbar() {
                     >
                         {/* Logo without any box/glassmorphism background */}
                         <div className="relative flex items-center justify-center w-24 h-24 md:w-32 md:h-32 transition-transform duration-500 group-hover:scale-105 active:scale-95">
-                            {/* Inner mix-blend image to remove white rendering artifacts if any remain */}
-                            <div className="relative w-full h-full mix-blend-multiply overflow-hidden">
+                            {/* Inner mix-blend image with a radial mask to softly fade the corners */}
+                            <div
+                                className="relative w-full h-full mix-blend-multiply overflow-hidden"
+                                style={{
+                                    maskImage: "radial-gradient(circle, black 40%, transparent 100%)",
+                                    WebkitMaskImage: "radial-gradient(circle, black 50%, transparent 100%)",
+                                }}
+                            >
                                 <Image
                                     src="/images/logo-raw.png"
                                     alt="AVS AR VISHWA ART STUDIO"
