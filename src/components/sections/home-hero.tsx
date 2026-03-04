@@ -42,18 +42,18 @@ export function HomeHero() {
             {/* Text Content - Pulled up to sit tightly inside the arch */}
             <div className="container mx-auto px-4 md:px-6 z-10 w-full flex flex-col items-center text-center -mt-[60px] sm:-mt-[90px] md:-mt-[110px] pointer-events-none">
 
-                {/* Main Heading & Logo */}
+                {/* Main Typography Headline */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-                    className="flex flex-col items-center pointer-events-auto"
+                    className="flex flex-col items-center pointer-events-auto w-full z-10"
                 >
-                    <div className="relative w-90 h-90 md:w-[100px] md:h-[100px] -mt-24 md:-mt-32 mb-2 md:mb-4 pointer-events-none">
-                        <Image src="/images/logo-new.png" alt="Arvishwa Logo" fill className="object-contain mix-blend-multiply" priority />
-                    </div>
-                    <h1 className="font-serif text-[clamp(2.2rem,5vw,3.5rem)] text-ink leading-[1.15] max-w-2xl lg:max-w-3xl mx-auto -mt-4 md:-mt-8">
-                        Create Stunning Original <br className="hidden md:block" /> Artworks Instantly
+                    <h1 className="font-['IBM_Plex_Serif'] font-medium text-[clamp(1.125rem,4vw,1.75rem)] md:text-[clamp(1.75rem,5vw,2.25rem)] text-ink leading-relaxed max-w-[600px] md:max-w-[700px] mx-auto -mt-[140px] tracking-wide text-balance pt-20">
+                        <span>Capturing </span>
+                        <span className="font-['Shadows_Into_Light_Two'] text-[115%] font-normal text-ink/90 -rotate-1 inline-block mx-1">stories</span>
+                        <span> through brush and </span>
+                        <span className="font-['Shadows_Into_Light_Two'] text-[115%] font-normal text-ink/90 rotate-1 inline-block mx-1">color.</span>
                     </h1>
                 </motion.div>
 
