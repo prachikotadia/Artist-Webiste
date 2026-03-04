@@ -23,7 +23,7 @@ export function Collections() {
         {
             title: "Canvas Flow",
             desc: "Deep hues colliding in a fluid canvas.",
-            url: "/videos/canvas-flow.mp4",
+            url: "/videos/72497-543260691_medium.mp4",
             shape: "rounded-tr-[4rem] rounded-tl-[2rem] rounded-br-[2rem] rounded-bl-[3rem]",
             gridClass: "md:col-span-2 lg:col-span-6 h-[300px] sm:h-[400px] lg:h-[460px]",
         },

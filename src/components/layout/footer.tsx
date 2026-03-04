@@ -6,26 +6,34 @@ export function Footer() {
         {
             name: "Instagram",
             icon: FaInstagram,
-            hoverClass: "hover:text-[#E1306C] hover:drop-shadow-[0_0_12px_rgba(225,48,108,0.5)]",
-            glowClass: "from-[#F56040] to-[#833AB4]"
+            colorClass: "text-[#E1306C]",
+            hoverClass: "hover:drop-shadow-[0_0_8px_rgba(225,48,108,0.5)]",
+            glowClass: "from-[#F56040] to-[#833AB4]",
+            href: "https://www.instagram.com/ar_vishwa?hl=en"
         },
         {
             name: "WhatsApp",
             icon: FaWhatsapp,
-            hoverClass: "hover:text-[#25D366] hover:drop-shadow-[0_0_12px_rgba(37,211,102,0.5)]",
-            glowClass: "from-[#128C7E] to-[#25D366]"
+            colorClass: "text-[#25D366]",
+            hoverClass: "hover:drop-shadow-[0_0_8px_rgba(37,211,102,0.5)]",
+            glowClass: "from-[#128C7E] to-[#25D366]",
+            href: "#"
         },
         {
             name: "LinkedIn",
             icon: FaLinkedinIn,
-            hoverClass: "hover:text-[#0077B5] hover:drop-shadow-[0_0_12px_rgba(0,119,181,0.5)]",
-            glowClass: "from-[#0077b5] to-[#00A0DC]"
+            colorClass: "text-[#0077B5]",
+            hoverClass: "hover:drop-shadow-[0_0_8px_rgba(0,119,181,0.5)]",
+            glowClass: "from-[#0077b5] to-[#00A0DC]",
+            href: "#"
         },
         {
             name: "Text",
             icon: FaCommentSms,
-            hoverClass: "hover:text-[#0B84FF] hover:drop-shadow-[0_0_12px_rgba(11,132,255,0.5)]",
-            glowClass: "from-[#0B84FF] to-[#34C759]"
+            colorClass: "text-[#0B84FF]",
+            hoverClass: "hover:drop-shadow-[0_0_8px_rgba(11,132,255,0.5)]",
+            glowClass: "from-[#0B84FF] to-[#34C759]",
+            href: "#"
         },
     ];
 
@@ -72,12 +80,14 @@ export function Footer() {
                                     <div className={`absolute -inset-2 bg-gradient-to-r ${social.glowClass} opacity-0 group-hover/social:opacity-20 blur-xl transition-opacity duration-500 rounded-full pointer-events-none`} />
 
                                     <a
-                                        href="#"
-                                        className={`group inline-flex items-center gap-3 opacity-70 transition-all duration-300 hover:opacity-100 hover:-translate-y-1 hover:translate-x-1 ${social.hoverClass}`}
+                                        href={social.href}
+                                        target={social.href.startsWith("http") ? "_blank" : undefined}
+                                        rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                                        className={`group inline-flex items-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:translate-x-1 active:scale-95 ${social.colorClass} ${social.hoverClass}`}
                                     >
                                         <Icon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
-                                        <span className="font-medium tracking-wide">{social.name}</span>
-                                        <ArrowUpRight className="w-3 h-3 ml-1 opacity-0 -translate-x-2 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0" />
+                                        <span className="font-semibold tracking-wide text-lg">{social.name}</span>
+                                        <ArrowUpRight className="w-4 h-4 ml-1 opacity-0 -translate-x-2 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0" />
                                     </a>
                                 </li>
                             );
