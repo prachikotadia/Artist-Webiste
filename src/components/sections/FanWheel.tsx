@@ -30,10 +30,9 @@ export interface FanArtwork {
 
 interface FanWheelProps {
     items: FanArtwork[];
-    children?: React.ReactNode;
 }
 
-export function FanWheel({ items, children }: FanWheelProps) {
+export function FanWheel({ items }: FanWheelProps) {
     const containerRef = useRef<HTMLDivElement>(null);
 
     // Core motion value for the wheel's rotation in degrees.
@@ -215,13 +214,6 @@ export function FanWheel({ items, children }: FanWheelProps) {
                     bottom: layout.baseBottom
                 }}
             />
-
-            {/* Injected Content via Children props sitting ON TOP of the base but BEHIND or FRONT of the wheel (Front here) */}
-            {children && (
-                <div className="absolute inset-x-0 bottom-0 z-[90] flex flex-col items-center justify-start pointer-events-none" style={{ top: '20%' }}>
-                    {children}
-                </div>
-            )}
 
             {/* The Rotating Fan container */}
             <div

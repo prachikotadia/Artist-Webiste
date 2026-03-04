@@ -36,22 +36,28 @@ export function HomeHero() {
             >
                 <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#FDFBF7] to-transparent z-40 pointer-events-none" />
                 <div className="pointer-events-auto">
-                    <FanWheel items={fanWheelArtworks}>
-                        {/* Main Typography Headline INJECTED inside Wheel */}
-                        <div className="flex flex-col items-center pointer-events-auto z-[100] w-full">
-                            <h1 className="font-['IBM_Plex_Serif'] font-medium text-[clamp(1.25rem,4vw,1.75rem)] md:text-[clamp(1.75rem,5vw,2.25rem)] text-ink leading-relaxed max-w-[600px] md:max-w-[700px] mx-auto tracking-wide text-balance pt-8 drop-shadow-md">
-                                <span>Capturing </span>
-                                <span className="font-['Shadows_Into_Light_Two'] text-[115%] font-normal text-ink/90 -rotate-1 inline-block mx-1">stories</span>
-                                <span> through brush and </span>
-                                <span className="font-['Shadows_Into_Light_Two'] text-[115%] font-normal text-ink/90 rotate-1 inline-block mx-1">color.</span>
-                            </h1>
-                        </div>
-                    </FanWheel>
+                    <FanWheel items={fanWheelArtworks} />
                 </div>
             </motion.div>
 
-            {/* Text Content */}
-            <div className="container mx-auto px-4 md:px-6 z-10 w-full flex flex-col items-center text-center pb-10 pointer-events-none relative pt-4 md:pt-8">
+            {/* Text Content - Positioned UP directly into the negative space of the wheel */}
+            <div className="container mx-auto px-4 md:px-6 relative z-[60] w-full flex flex-col items-center text-center -mt-[120px] sm:-mt-[160px] md:-mt-[220px] pointer-events-none pb-10">
+
+                {/* Main Typography Headline */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+                    className="flex flex-col items-center pointer-events-auto z-10 w-full mb-6 max-w-[90vw] md:max-w-none"
+                >
+                    <h1 className="font-['IBM_Plex_Serif'] font-medium text-[clamp(1.25rem,5.5vw,1.35rem)] md:text-[clamp(1.75rem,5vw,2.25rem)] text-ink leading-[1.3] md:leading-relaxed max-w-[600px] md:max-w-[700px] mx-auto tracking-wide text-balance md:drop-shadow-md pb-2 px-2 md:px-0">
+                        <span>Capturing </span>
+                        <span className="font-['Shadows_Into_Light_Two'] text-[120%] font-normal text-ink/90 -rotate-1 inline-block mx-1 drop-shadow-sm">stories</span>
+                        <br className="hidden sm:block md:hidden" />
+                        <span> through brush and </span>
+                        <span className="font-['Shadows_Into_Light_Two'] text-[120%] font-normal text-ink/90 rotate-1 inline-block mx-1 drop-shadow-sm flex-shrink-0">color.</span>
+                    </h1>
+                </motion.div>
 
                 {/* Subheading matched to reference */}
                 <motion.p
