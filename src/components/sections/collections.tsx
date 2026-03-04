@@ -5,35 +5,34 @@ import { ArrowUpRight, Play, Pause, X } from "lucide-react";
 import { useState, useRef } from "react";
 
 export function Collections() {
-    // Elegant art studio / fluid art Pexels video URLs as random placeholders
     const studioVideos = [
         {
             title: "Fluid Motion",
             desc: "Abstract color blending and dispersion.",
             url: "/videos/fluid-motion.mp4",
-            shape: "rounded-tl-[4rem] rounded-br-[4rem] rounded-tr-2xl rounded-bl-2xl", // Different size curves
-            gridClass: "md:col-span-2 lg:col-span-7 h-[320px] sm:h-[400px] lg:h-[440px]",
+            shape: "rounded-tr-[3rem] rounded-tl-xl rounded-bl-3xl rounded-br-[4rem]", // Slight asymmetrical curves
+            gridClass: "md:col-span-2 lg:col-span-7 h-[300px] sm:h-[400px] lg:h-[420px]",
         },
         {
             title: "Color Mixing",
             desc: "The organic interaction of raw liquids.",
             url: "/videos/color-mix.mp4",
-            shape: "rounded-tr-[5rem] rounded-bl-[5rem] rounded-tl-xl rounded-br-xl",
-            gridClass: "md:col-span-2 lg:col-span-5 h-[320px] sm:h-[400px] lg:h-[440px]",
+            shape: "rounded-tr-xl rounded-tl-[3rem] rounded-br-2xl rounded-bl-[4rem]",
+            gridClass: "md:col-span-2 lg:col-span-5 h-[300px] sm:h-[400px] lg:h-[420px]",
         },
         {
             title: "Canvas Flow",
             desc: "Deep hues colliding in a fluid canvas.",
             url: "/videos/canvas-flow.mp4",
-            shape: "rounded-[3rem]", // Uniform large curve
-            gridClass: "md:col-span-2 lg:col-span-5 h-[320px] sm:h-[400px] lg:h-[500px]",
+            shape: "rounded-tr-[4rem] rounded-tl-[2rem] rounded-br-[2rem] rounded-bl-[3rem]",
+            gridClass: "md:col-span-2 lg:col-span-6 h-[300px] sm:h-[400px] lg:h-[460px]",
         },
         {
             title: "Texture Details",
             desc: "Mesmerizing metallic textures in motion.",
             url: "/videos/texture-details.mp4",
-            shape: "rounded-tl-2xl rounded-br-2xl rounded-tr-[4rem] rounded-bl-[4rem]",
-            gridClass: "md:col-span-2 lg:col-span-7 h-[320px] sm:h-[400px] lg:h-[500px]",
+            shape: "rounded-tl-xl rounded-tr-[3rem] rounded-bl-[4rem] rounded-br-2xl",
+            gridClass: "md:col-span-2 lg:col-span-6 h-[300px] sm:h-[400px] lg:h-[460px]",
         }
     ];
 
@@ -75,16 +74,17 @@ export function Collections() {
                 </div>
 
                 {/* 12 Column Asymmetrical Grid for Desktop, 1 Column for Mobile */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
                     {studioVideos.map((video, index) => (
                         <motion.div
                             key={index}
                             onClick={() => openVideo(video.url)}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0, scale: 0.95, y: 30 }}
+                            whileInView={{ opacity: 1, scale: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.8, delay: index * 0.1, ease: "easeOut" }}
-                            className={`relative group overflow-hidden bg-ink cursor-pointer border border-ink/5 shadow-2xl w-full ${video.gridClass} ${video.shape}`}
+                            transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                            className={`relative group overflow-hidden bg-ink cursor-pointer shadow-[0_20px_40px_rgba(0,0,0,0.15)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.25)] transition-shadow duration-700 w-full ${video.gridClass}`}
+                            style={{ borderRadius: '2.5rem' }} // Forcing perfect rounded rectangles matching the UI, overriding dynamic shapes
                         >
                             {/* Auto-playing, looping background video */}
                             <video
@@ -93,25 +93,32 @@ export function Collections() {
                                 loop
                                 muted
                                 playsInline
-                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110 opacity-80 group-hover:opacity-100 pointer-events-none"
+                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.5s] ease-[0.16,1,0.3,1] group-hover:scale-105 pointer-events-none"
                             />
 
-                            {/* Heavy dark gradient overlay from bottom to make text legible */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent pointer-events-none transition-opacity duration-500 group-hover:opacity-80" />
+                            {/* Refined gradient overlay for perfect text legibility */}
+                            <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none transition-opacity duration-500 group-hover:opacity-100" />
+
+                            {/* Added subtle top gradient for icons */}
+                            <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent pointer-events-none opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                             {/* Text Content Overlay */}
-                            <div className="absolute inset-0 p-8 lg:p-12 flex flex-col justify-end text-cream transform transition-transform duration-500 group-hover:translate-y-[-10px] pointer-events-none">
-                                <h3 className="text-3xl lg:text-4xl font-serif mb-3 drop-shadow-md">
+                            <div className="absolute inset-0 p-8 lg:p-10 flex flex-col justify-end text-cream pointer-events-none">
+                                <motion.h3
+                                    className="text-2xl sm:text-3xl lg:text-4xl font-serif mb-2 tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+                                >
                                     {video.title}
-                                </h3>
-                                <p className="text-cream/80 text-base lg:text-lg max-w-sm drop-shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 hidden sm:block">
+                                </motion.h3>
+                                <motion.p
+                                    className="text-cream/90 text-[15px] sm:text-base max-w-sm drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] font-medium leading-relaxed"
+                                >
                                     {video.desc}
-                                </p>
+                                </motion.p>
                             </div>
 
-                            {/* Corner Icon (Changed to Play icon to hint at action) */}
-                            <div className="absolute top-8 right-8 w-12 h-12 rounded-full bg-cream/20 backdrop-blur-md flex items-center justify-center text-cream opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 pointer-events-none">
-                                <Play className="w-5 h-5 ml-1" />
+                            {/* Premium Corner Play Icon */}
+                            <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white border border-white/20 shadow-[0_4px_12px_rgba(0,0,0,0.3)] transition-all duration-500 transform group-hover:scale-110 group-hover:bg-white/20 pointer-events-none">
+                                <Play className="w-4 h-4 ml-0.5" />
                             </div>
                         </motion.div>
                     ))}

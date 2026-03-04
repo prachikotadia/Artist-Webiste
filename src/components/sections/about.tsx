@@ -73,9 +73,8 @@ function ArtistProfileCard() {
                         y: glareY,
                     }}
                 />
-
                 <Image
-                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop"
+                    src="/images/artist-profile-v2.jpg"
                     alt="Artist Portrait"
                     fill
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
@@ -109,9 +108,14 @@ function ArtistProfileCard() {
                             </div>
                         </div>
 
-                        <button className="bg-[#f9f9f9] text-[#1a1c1a] px-8 py-3 rounded-full font-semibold text-[15px] hover:bg-white hover:scale-110 active:scale-95 transition-all duration-300 shadow-[0_8px_16px_rgba(0,0,0,0.2)]">
+                        <a
+                            href="https://www.instagram.com/ar_vishwa?hl=en"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-[#f9f9f9] text-[#1a1c1a] px-8 py-3 rounded-full font-semibold text-[15px] hover:bg-white hover:scale-110 active:scale-95 transition-all duration-300 shadow-[0_8px_16px_rgba(0,0,0,0.2)] block text-center"
+                        >
                             Follow
-                        </button>
+                        </a>
                     </div>
                 </div>
             </motion.div>

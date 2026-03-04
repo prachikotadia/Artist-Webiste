@@ -38,7 +38,7 @@ export function Navbar() {
     return (
         <>
             <header
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "py-4 bg-white/40 backdrop-blur-xl border-b border-white/20 shadow-[0_4px_30px_rgba(0,0,0,0.03)]" : "py-6 bg-transparent"
+                className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${isScrolled ? "py-4 bg-white/40 backdrop-blur-xl border-b border-white/20 shadow-[0_4px_30px_rgba(0,0,0,0.03)]" : "py-6 bg-transparent"
                     }`}
             >
                 <div className="container mx-auto px-6 flex items-center justify-between">
@@ -48,12 +48,12 @@ export function Navbar() {
                             e.preventDefault();
                             handleNavClick("#home");
                         }}
-                        className="relative z-50 flex items-center justify-center group"
+                        className="relative z-[110] flex items-center justify-center group"
                     >
                         {/* Glassmorphism Container for Logo */}
                         <div className="relative flex items-center justify-center w-20 h-20 md:w-24 md:h-24 p-2 bg-white/40 backdrop-blur-lg rounded-[1.5rem] border border-white/80 shadow-[0_8px_32px_rgba(0,0,0,0.05),inset_0_2px_5px_rgba(255,255,255,0.7)] transition-all duration-500 group-hover:bg-white/50 group-hover:shadow-[0_12px_40px_rgba(0,0,0,0.08),inset_0_2px_10px_rgba(255,255,255,0.9)] group-hover:scale-105 group-hover:-translate-y-1">
                             {/* Inner mix-blend image to remove white background */}
-                            <div className="relative w-full h-full mix-blend-multiply">
+                            <div className="relative w-full h-full mix-blend-multiply overflow-hidden rounded-xl">
                                 <Image
                                     src="/images/logo-new.png"
                                     alt="AVS AR VISHWA ART STUDIO"
@@ -112,7 +112,7 @@ export function Navbar() {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        className="fixed inset-0 z-50 bg-cream flex flex-col items-center justify-center"
+                        className="fixed inset-0 z-[120] bg-cream flex flex-col items-center justify-center"
                     >
                         <button
                             className="absolute top-6 right-6 p-2 lg:hidden"

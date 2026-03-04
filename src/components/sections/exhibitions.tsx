@@ -332,7 +332,7 @@ export function Exhibitions() {
                 </div>
 
                 {/* --- SELECTION INFO PANEL --- */}
-                <div className="w-full max-w-[720px] min-h-[300px] relative">
+                <div className="w-full max-w-[720px] min-h-[300px] relative px-4 sm:px-0">
                     <AnimatePresence mode="popLayout">
                         <motion.div
                             key={activeData.year}
@@ -340,7 +340,7 @@ export function Exhibitions() {
                             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                             exit={{ opacity: 0, y: -15, filter: "blur(4px)" }}
                             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                            className="w-full bg-[rgba(10,10,12,0.28)] backdrop-blur-[32px] border border-white/10 rounded-[24px] md:rounded-[32px] shadow-[0_20px_40px_rgba(0,0,0,0.15),inset_0_1px_1px_rgba(255,255,255,0.08)] p-6 md:p-10 flex flex-col gap-6"
+                            className="w-full bg-[rgba(10,10,12,0.6)] backdrop-blur-[32px] border border-white/10 rounded-[20px] md:rounded-[32px] shadow-[0_20px_40px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.08)] p-5 md:p-10 flex flex-col gap-6"
                         >
                             <div className="flex items-center gap-3 mb-2">
                                 <span className="w-2 h-2 rounded-full bg-[#E5B33A] animate-pulse shadow-[0_0_8px_rgba(229,179,58,0.6)]" />
