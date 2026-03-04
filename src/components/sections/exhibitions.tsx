@@ -331,6 +331,24 @@ export function Exhibitions() {
                     </div>
                 </div>
 
+                {/* Subtle Swipe/Drag Hint */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1, duration: 1 }}
+                    className="flex items-center gap-3 text-white/30 text-xs tracking-[0.2em] uppercase font-semibold mb-8 md:mb-12 pointer-events-none"
+                >
+                    <motion.span
+                        animate={{ x: [-3, 0, -3] }}
+                        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                    >←</motion.span>
+                    <span>Drag or Swipe</span>
+                    <motion.span
+                        animate={{ x: [3, 0, 3] }}
+                        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                    >→</motion.span>
+                </motion.div>
+
                 {/* --- SELECTION INFO PANEL --- */}
                 <div className="w-full max-w-[720px] min-h-[300px] relative px-4 sm:px-0">
                     <AnimatePresence mode="popLayout">
