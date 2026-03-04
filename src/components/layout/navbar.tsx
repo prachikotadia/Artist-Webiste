@@ -50,15 +50,14 @@ export function Navbar() {
                         }}
                         className="relative z-[110] flex items-center justify-center group"
                     >
-                        {/* Glassmorphism Container for Logo */}
-                        <div className="relative flex items-center justify-center w-20 h-20 md:w-24 md:h-24 p-2 bg-white/40 backdrop-blur-lg rounded-[1.5rem] border border-white/80 shadow-[0_8px_32px_rgba(0,0,0,0.05),inset_0_2px_5px_rgba(255,255,255,0.7)] transition-all duration-500 group-hover:bg-white/50 group-hover:shadow-[0_12px_40px_rgba(0,0,0,0.08),inset_0_2px_10px_rgba(255,255,255,0.9)] group-hover:scale-105 group-hover:-translate-y-1">
-                            {/* Inner mix-blend image to remove white background */}
-                            <div className="relative w-full h-full mix-blend-multiply overflow-hidden rounded-xl">
+                        {/* Logo without any box/glassmorphism background */}
+                        <div className="relative flex items-center justify-center w-24 h-24 md:w-32 md:h-32 transition-transform duration-500 group-hover:scale-105 active:scale-95">
+                            {/* Inner mix-blend image to remove white rendering artifacts if any remain */}
+                            <div className="relative w-full h-full mix-blend-multiply overflow-hidden">
                                 <Image
                                     src="/images/logo-new.png"
                                     alt="AVS AR VISHWA ART STUDIO"
                                     fill
-                                    sizes="(max-width: 768px) 80px, 96px"
                                     className="object-contain"
                                     priority
                                 />
