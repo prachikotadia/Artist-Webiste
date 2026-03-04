@@ -6,33 +6,25 @@ export function Footer() {
         {
             name: "Instagram",
             icon: FaInstagram,
-            colorClass: "text-[#E1306C]",
-            hoverClass: "hover:drop-shadow-[0_0_8px_rgba(225,48,108,0.5)]",
-            glowClass: "from-[#F56040] to-[#833AB4]",
+            activeClass: "active:text-[#E1306C]",
             href: "https://www.instagram.com/ar_vishwa?hl=en"
         },
         {
             name: "WhatsApp",
             icon: FaWhatsapp,
-            colorClass: "text-[#25D366]",
-            hoverClass: "hover:drop-shadow-[0_0_8px_rgba(37,211,102,0.5)]",
-            glowClass: "from-[#128C7E] to-[#25D366]",
+            activeClass: "active:text-[#25D366]",
             href: "#"
         },
         {
             name: "LinkedIn",
             icon: FaLinkedinIn,
-            colorClass: "text-[#0077B5]",
-            hoverClass: "hover:drop-shadow-[0_0_8px_rgba(0,119,181,0.5)]",
-            glowClass: "from-[#0077b5] to-[#00A0DC]",
+            activeClass: "active:text-[#0077B5]",
             href: "#"
         },
         {
             name: "Text",
             icon: FaCommentSms,
-            colorClass: "text-[#0B84FF]",
-            hoverClass: "hover:drop-shadow-[0_0_8px_rgba(11,132,255,0.5)]",
-            glowClass: "from-[#0B84FF] to-[#34C759]",
+            activeClass: "active:text-[#0B84FF]",
             href: "#"
         },
     ];
@@ -76,14 +68,11 @@ export function Footer() {
                             const Icon = social.icon;
                             return (
                                 <li key={social.name} className="relative group/social">
-                                    {/* Hover gradient background blob behind the icon */}
-                                    <div className={`absolute -inset-2 bg-gradient-to-r ${social.glowClass} opacity-0 group-hover/social:opacity-20 blur-xl transition-opacity duration-500 rounded-full pointer-events-none`} />
-
                                     <a
                                         href={social.href}
                                         target={social.href.startsWith("http") ? "_blank" : undefined}
                                         rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                                        className={`group inline-flex items-center gap-3 transition-all duration-300 hover:-translate-y-1 hover:translate-x-1 active:scale-95 ${social.colorClass} ${social.hoverClass}`}
+                                        className={`group inline-flex items-center gap-3 text-white/70 hover:text-white transition-all duration-300 hover:-translate-y-1 hover:translate-x-1 active:scale-95 ${social.activeClass}`}
                                     >
                                         <Icon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
                                         <span className="font-semibold tracking-wide text-lg">{social.name}</span>
