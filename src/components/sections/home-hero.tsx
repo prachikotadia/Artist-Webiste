@@ -39,17 +39,17 @@ export function HomeHero() {
                 </div>
             </motion.div>
 
-            {/* Text Content - Pulled up to sit tightly inside the arch */}
-            <div className="container mx-auto px-4 md:px-6 z-10 w-full flex flex-col items-center text-center -mt-[60px] sm:-mt-[90px] md:-mt-[110px] pointer-events-none">
+            {/* Text Content */}
+            <div className="container mx-auto px-4 md:px-6 z-50 w-full flex flex-col items-center text-center pb-10 mt-10 md:mt-16 pointer-events-none relative">
 
                 {/* Main Typography Headline */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-                    className="flex flex-col items-center pointer-events-auto w-full z-10"
+                    className="flex flex-col items-center pointer-events-auto z-10 w-full mt-4 md:mt-8"
                 >
-                    <h1 className="font-['IBM_Plex_Serif'] font-medium text-[clamp(1.125rem,4vw,1.75rem)] md:text-[clamp(1.75rem,5vw,2.25rem)] text-ink leading-relaxed max-w-[600px] md:max-w-[700px] mx-auto -mt-[140px] tracking-wide text-balance pt-20">
+                    <h1 className="font-['IBM_Plex_Serif'] font-medium text-[clamp(1.25rem,4vw,1.75rem)] md:text-[clamp(1.75rem,5vw,2.25rem)] text-ink leading-relaxed max-w-[600px] md:max-w-[700px] mx-auto tracking-wide text-balance pt-8">
                         <span>Capturing </span>
                         <span className="font-['Shadows_Into_Light_Two'] text-[115%] font-normal text-ink/90 -rotate-1 inline-block mx-1">stories</span>
                         <span> through brush and </span>
