@@ -55,7 +55,7 @@ export function Navbar() {
                             {/* Inner mix-blend image to remove white rendering artifacts if any remain */}
                             <div className="relative w-full h-full mix-blend-multiply overflow-hidden">
                                 <Image
-                                    src="/images/logo-new.png"
+                                    src="/images/logo-raw.png"
                                     alt="AVS AR VISHWA ART STUDIO"
                                     fill
                                     className="object-contain"
