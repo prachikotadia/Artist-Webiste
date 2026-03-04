@@ -27,6 +27,7 @@ export function HomeHero() {
         <section id="home" className="pt-0 relative overflow-hidden flex flex-col items-center justify-start min-h-screen bg-[#FDFBF7]">
 
             {/* FanWheel arches OVER the text */}
+            {/* FanWheel arches OVER the text */}
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -35,27 +36,22 @@ export function HomeHero() {
             >
                 <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#FDFBF7] to-transparent z-40 pointer-events-none" />
                 <div className="pointer-events-auto">
-                    <FanWheel items={fanWheelArtworks} />
+                    <FanWheel items={fanWheelArtworks}>
+                        {/* Main Typography Headline INJECTED inside Wheel */}
+                        <div className="flex flex-col items-center pointer-events-auto z-[100] w-full">
+                            <h1 className="font-['IBM_Plex_Serif'] font-medium text-[clamp(1.25rem,4vw,1.75rem)] md:text-[clamp(1.75rem,5vw,2.25rem)] text-ink leading-relaxed max-w-[600px] md:max-w-[700px] mx-auto tracking-wide text-balance pt-8 drop-shadow-md">
+                                <span>Capturing </span>
+                                <span className="font-['Shadows_Into_Light_Two'] text-[115%] font-normal text-ink/90 -rotate-1 inline-block mx-1">stories</span>
+                                <span> through brush and </span>
+                                <span className="font-['Shadows_Into_Light_Two'] text-[115%] font-normal text-ink/90 rotate-1 inline-block mx-1">color.</span>
+                            </h1>
+                        </div>
+                    </FanWheel>
                 </div>
             </motion.div>
 
             {/* Text Content */}
-            <div className="container mx-auto px-4 md:px-6 z-50 w-full flex flex-col items-center text-center pb-10 mt-10 md:mt-16 pointer-events-none relative">
-
-                {/* Main Typography Headline */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-                    className="flex flex-col items-center pointer-events-auto z-10 w-full mt-4 md:mt-8"
-                >
-                    <h1 className="font-['IBM_Plex_Serif'] font-medium text-[clamp(1.25rem,4vw,1.75rem)] md:text-[clamp(1.75rem,5vw,2.25rem)] text-ink leading-relaxed max-w-[600px] md:max-w-[700px] mx-auto tracking-wide text-balance pt-8">
-                        <span>Capturing </span>
-                        <span className="font-['Shadows_Into_Light_Two'] text-[115%] font-normal text-ink/90 -rotate-1 inline-block mx-1">stories</span>
-                        <span> through brush and </span>
-                        <span className="font-['Shadows_Into_Light_Two'] text-[115%] font-normal text-ink/90 rotate-1 inline-block mx-1">color.</span>
-                    </h1>
-                </motion.div>
+            <div className="container mx-auto px-4 md:px-6 z-10 w-full flex flex-col items-center text-center pb-10 pointer-events-none relative pt-4 md:pt-8">
 
                 {/* Subheading matched to reference */}
                 <motion.p
