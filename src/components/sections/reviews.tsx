@@ -6,32 +6,28 @@ import { clientReviews, Review } from "@/data/reviews";
 
 import { useState, useEffect } from "react";
 
-const liquidColors = [
-    { glow: "bg-pink-500/10 group-hover:bg-pink-500/20", border: "border-pink-300/10", gradient: "from-pink-500/10 via-pink-400/0" },
-    { glow: "bg-cyan-500/10 group-hover:bg-cyan-500/20", border: "border-cyan-300/10", gradient: "from-cyan-500/10 via-cyan-400/0" },
-    { glow: "bg-amber-500/10 group-hover:bg-amber-500/20", border: "border-amber-300/10", gradient: "from-amber-500/10 via-amber-400/0" },
-    { glow: "bg-emerald-500/10 group-hover:bg-emerald-500/20", border: "border-emerald-300/10", gradient: "from-emerald-500/10 via-emerald-400/0" },
-    { glow: "bg-violet-500/10 group-hover:bg-violet-500/20", border: "border-violet-300/10", gradient: "from-violet-500/10 via-violet-400/0" },
-    { glow: "bg-rose-500/10 group-hover:bg-rose-500/20", border: "border-rose-300/10", gradient: "from-rose-500/10 via-rose-400/0" }
+const glassHues = [
+    "bg-sky-400/30",
+    "bg-emerald-400/30",
+    "bg-amber-400/30",
+    "bg-purple-400/30",
+    "bg-rose-400/30"
 ];
 
 const ReviewCard = ({ review, index }: { review: Review; index: number }) => {
-    const color = liquidColors[index % liquidColors.length];
+    const hue = glassHues[index % glassHues.length];
 
     return (
         <div className="w-[85vw] sm:w-[500px] shrink-0 relative group h-full mr-4 sm:mr-8 transition-all duration-500 hover:scale-[1.02]">
-            {/* Deep 3D Shadow Underlay + Colored Glow */}
-            <div className={`absolute inset-x-2 -bottom-2 h-full blur-md rounded-[2.5rem] -z-10 transition-all duration-500 ${color.glow}`} />
-            <div className="absolute inset-x-4 -bottom-4 h-full bg-black/50 blur-lg rounded-[2.5rem] -z-20 transition-all duration-500" />
 
-            {/* Ultra-Transparent Glass Card */}
-            <div className={`h-full bg-white/[0.005] backdrop-blur-md border ${color.border} rounded-[2.5rem] p-8 sm:p-10 flex flex-col justify-between overflow-hidden relative shadow-[inset_0_1px_1px_rgba(255,255,255,0.2),0_4px_16px_rgba(0,0,0,0.1)]`}>
+            {/* Very Subtle Ambient Hue Orb behind the card */}
+            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 blur-[60px] rounded-full -z-10 transition-all duration-500 ${hue} opacity-40 group-hover:opacity-70`} />
 
-                {/* Soft inner colored glow */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${color.gradient} to-transparent pointer-events-none opacity-40`} />
+            {/* Ultra-Transparent Premium Glass Card */}
+            <div className="h-full bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] rounded-[2.5rem] p-8 sm:p-10 flex flex-col justify-between overflow-hidden relative shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_8px_32px_rgba(0,0,0,0.3)] text-white">
 
                 <div className="relative z-10">
-                    <div className="flex gap-1 text-amber-300 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)] mb-6">
+                    <div className="flex gap-1 text-amber-300/80 drop-shadow-[0_0_8px_rgba(251,191,36,0.3)] mb-6">
                         {[...Array(review.rating)].map((_, i) => (
                             <Star key={i} size={18} fill="currentColor" strokeWidth={0} />
                         ))}
@@ -106,14 +102,14 @@ export function ClientReviews() {
     const prevReview = () => setCurrentIndex((prev) => Math.max(prev - 1, 0));
 
     return (
-        <section className="py-24 sm:py-32 bg-slate-950 relative overflow-hidden flex flex-col justify-center min-h-[80vh]">
+        <section className="py-24 sm:py-32 relative overflow-hidden flex flex-col justify-center min-h-[80vh] bg-transparent">
 
-            {/* Deep Dark Grid Background */}
-            <div className="absolute inset-0 bg-slate-950" />
+            {/* Deep Dark Grid Background with Smooth Blending Mask */}
+            <div className="absolute inset-0 bg-slate-950 [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] pointer-events-none -z-30" />
 
-            {/* Geometric Grid Pattern Overlay */}
+            {/* Geometric Grid Pattern Overlay with Smooth Blending Mask */}
             <div
-                className="absolute inset-0 opacity-20 pointer-events-none"
+                className="absolute inset-0 opacity-10 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] -z-20"
                 style={{
                     backgroundImage: `
                         linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
@@ -123,8 +119,8 @@ export function ClientReviews() {
                 }}
             />
 
-            {/* Subtle Center Glow to illuminate the glass */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[500px] bg-white/5 rounded-full blur-[120px] pointer-events-none" />
+            {/* Subtle Center Glow to gently illuminate the sheer glass layer */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[500px] bg-white/5 rounded-full blur-[120px] pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] -z-10" />
 
             <div className="container mx-auto px-6 mb-12 sm:mb-20 text-center relative z-20">
                 <motion.div
