@@ -6,20 +6,20 @@ import { FanWheel } from "@/components/sections/FanWheel";
 
 // Use the exact artworks from the original fan-wheel-section
 const fanWheelArtworks = [
-    { id: "1", title: "Skyline Study", year: "2024", medium: "Acrylic", size: "18x24", status: "Available", image: "https://source.unsplash.com/random/800x1000/?abstract,painting,colorful&sig=1" },
-    { id: "2", title: "Silent Horizon", year: "2022", medium: "Oil", size: "36x36", status: "Sold", image: "https://source.unsplash.com/random/800x1000/?oil,art,texture&sig=2" },
-    { id: "3", title: "Golden Hour", year: "2024", medium: "Oil", size: "24x30", status: "Available", image: "https://source.unsplash.com/random/800x1000/?canvas,painting,gold&sig=3" },
-    { id: "4", title: "Whispering Pines", year: "2023", medium: "Charcoal", size: "40x50", status: "Available", image: "https://source.unsplash.com/random/800x1000/?landscape,painting,acrylic&sig=4" },
-    { id: "5", title: "Tide Pool", year: "2021", medium: "Watercolor", size: "18x24", status: "Sold", image: "https://source.unsplash.com/random/800x1000/?watercolor,colorful,art&sig=5" },
-    { id: "6", title: "Urban Geometry", year: "2024", medium: "Mixed Media", size: "60x72", status: "Available", image: "https://source.unsplash.com/random/800x1000/?vibrant,painting,modern&sig=6" },
-    { id: "7", title: "Symphony in Blue", year: "2022", medium: "Oil", size: "30x40", status: "Sold", image: "https://source.unsplash.com/random/800x1000/?blue,painting,oil&sig=7" },
-    { id: "8", title: "Autumn Canopy", year: "2023", medium: "Acrylic", size: "36x48", status: "Available", image: "https://source.unsplash.com/random/800x1000/?warm,painting,abstract&sig=8" },
-    { id: "9", title: "Desert Mirage", year: "2022", medium: "Pastel", size: "24x24", status: "Available", image: "https://source.unsplash.com/random/800x1000/?texture,painting,canvas&sig=9" },
-    { id: "10", title: "Ocean's Edge", year: "2024", medium: "Oil", size: "30x40", status: "Sold", image: "https://source.unsplash.com/random/800x1000/?ocean,painting,oil&sig=10" },
-    { id: "11", title: "Winter Silence", year: "2023", medium: "Acrylic", size: "18x24", status: "Available", image: "https://source.unsplash.com/random/800x1000/?white,painting,minimal&sig=11" },
-    { id: "12", title: "Spring Awakening", year: "2024", medium: "Watercolor", size: "22x30", status: "Available", image: "https://source.unsplash.com/random/800x1000/?floral,painting,colorful&sig=12" },
-    { id: "13", title: "Midnight Sun", year: "2022", medium: "Mixed Media", size: "36x48", status: "Sold", image: "https://source.unsplash.com/random/800x1000/?night,painting,vibrant&sig=13" },
-    { id: "14", title: "Morning Mist", year: "2023", medium: "Oil", size: "24x36", status: "Available", image: "https://source.unsplash.com/random/800x1000/?soft,painting,oil&sig=14" },
+    { id: "1", title: "Skyline Study", year: "2024", medium: "Acrylic", size: "18x24", status: "Available", image: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?q=80&w=800&h=1000&fit=crop" },
+    { id: "2", title: "Silent Horizon", year: "2022", medium: "Oil", size: "36x36", status: "Sold", image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=800&h=1000&fit=crop" },
+    { id: "3", title: "Golden Hour", year: "2024", medium: "Oil", size: "24x30", status: "Available", image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=800&h=1000&fit=crop" },
+    { id: "4", title: "Whispering Pines", year: "2023", medium: "Charcoal", size: "40x50", status: "Available", image: "https://images.unsplash.com/photo-1536924940846-227afb31e2a5?q=80&w=800&h=1000&fit=crop" },
+    { id: "5", title: "Tide Pool", year: "2021", medium: "Watercolor", size: "18x24", status: "Sold", image: "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=800&h=1000&fit=crop" },
+    { id: "6", title: "Urban Geometry", year: "2024", medium: "Mixed Media", size: "60x72", status: "Available", image: "https://images.unsplash.com/photo-1578301978693-85fa9c026f33?q=80&w=800&h=1000&fit=crop" },
+    { id: "7", title: "Symphony in Blue", year: "2022", medium: "Oil", size: "30x40", status: "Sold", image: "https://images.unsplash.com/photo-1580136608260-4ebf15facdaf?q=80&w=800&h=1000&fit=crop" },
+    { id: "8", title: "Autumn Canopy", year: "2023", medium: "Acrylic", size: "36x48", status: "Available", image: "https://images.unsplash.com/photo-1549887552-cb1071d3e5ca?q=80&w=800&h=1000&fit=crop" },
+    { id: "9", title: "Desert Mirage", year: "2022", medium: "Pastel", size: "24x24", status: "Available", image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=800&h=1000&fit=crop" },
+    { id: "10", title: "Ocean's Edge", year: "2024", medium: "Oil", size: "30x40", status: "Sold", image: "https://images.unsplash.com/photo-1552250575-e508473b090f?q=80&w=800&h=1000&fit=crop" },
+    { id: "11", title: "Winter Silence", year: "2023", medium: "Acrylic", size: "18x24", status: "Available", image: "https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=800&h=1000&fit=crop" },
+    { id: "12", title: "Spring Awakening", year: "2024", medium: "Watercolor", size: "22x30", status: "Available", image: "https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=800&h=1000&fit=crop" },
+    { id: "13", title: "Midnight Sun", year: "2022", medium: "Mixed Media", size: "36x48", status: "Sold", image: "https://images.unsplash.com/photo-1501472312651-726afe119ff1?q=80&w=800&h=1000&fit=crop" },
+    { id: "14", title: "Morning Mist", year: "2023", medium: "Oil", size: "24x36", status: "Available", image: "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?q=80&w=800&h=1000&fit=crop" },
 ];
 
 export function HomeHero() {

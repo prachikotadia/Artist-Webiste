@@ -36,6 +36,25 @@ const TITLES = [
     "Midnight Sun", "Morning Mist", "Celestial Dream", "Fading Ember"
 ];
 
+// Generated Curated Painting Assets
+const PAINTING_URLS = [
+    "https://images.unsplash.com/photo-1541961017774-22349e4a1262?q=80&w=800&h=1000&fit=crop",
+    "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=800&h=1000&fit=crop",
+    "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=800&h=1000&fit=crop",
+    "https://images.unsplash.com/photo-1536924940846-227afb31e2a5?q=80&w=800&h=1000&fit=crop",
+    "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=800&h=1000&fit=crop",
+    "https://images.unsplash.com/photo-1578301978693-85fa9c026f33?q=80&w=800&h=1000&fit=crop",
+    "https://images.unsplash.com/photo-1580136608260-4ebf15facdaf?q=80&w=800&h=1000&fit=crop",
+    "https://images.unsplash.com/photo-1549887552-cb1071d3e5ca?q=80&w=800&h=1000&fit=crop",
+    "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=800&h=1000&fit=crop",
+    "https://images.unsplash.com/photo-1552250575-e508473b090f?q=80&w=800&h=1000&fit=crop",
+    "https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=800&h=1000&fit=crop",
+    "https://images.unsplash.com/photo-1557672172-298e090bd0f1?q=80&w=800&h=1000&fit=crop",
+    "https://images.unsplash.com/photo-1501472312651-726afe119ff1?q=80&w=800&h=1000&fit=crop",
+    "https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?q=80&w=800&h=1000&fit=crop",
+    "https://images.unsplash.com/photo-1563604068305-64906f2b703e?q=80&w=800&h=1000&fit=crop"
+];
+
 // Generate 40 artworks and group them by category
 const generateAlbums = (): Album[] => {
     const artworks: AlbumArtwork[] = [];
@@ -52,8 +71,8 @@ const generateAlbums = (): Album[] => {
             title: TITLES[i % TITLES.length] + (i > TITLES.length ? ` ${Math.floor(i / TITLES.length)}` : ''),
             year: 2021 + (i % 6), // 2021-2026
             category,
-            // Using Unsplash with specific keywords for colorful oil paintings
-            image: `https://source.unsplash.com/random/800x1000/?oil,painting,colorful,art&sig=${i}`,
+            // Rotate through beautiful abstract painting placeholders
+            image: PAINTING_URLS[i % PAINTING_URLS.length],
         });
     }
 
