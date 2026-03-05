@@ -6,39 +6,53 @@ import { clientReviews, Review } from "@/data/reviews";
 
 import { useState, useEffect } from "react";
 
-const ReviewCard = ({ review }: { review: Review }) => (
-    <div className="w-[85vw] sm:w-[500px] shrink-0 relative group h-full mr-4 sm:mr-8 transition-all duration-500 hover:scale-[1.02]">
-        {/* Deep 3D Shadow Underlay */}
-        <div className="absolute inset-x-4 -bottom-4 h-full bg-black/20 blur-2xl rounded-[2.5rem] -z-10 group-hover:bg-black/30 transition-all duration-500" />
+const liquidColors = [
+    { glow: "bg-pink-500/20 group-hover:bg-pink-500/40", border: "border-pink-300/30", gradient: "from-pink-400/20" },
+    { glow: "bg-cyan-500/20 group-hover:bg-cyan-500/40", border: "border-cyan-300/30", gradient: "from-cyan-400/20" },
+    { glow: "bg-amber-500/20 group-hover:bg-amber-500/40", border: "border-amber-300/30", gradient: "from-amber-400/20" },
+    { glow: "bg-emerald-500/20 group-hover:bg-emerald-500/40", border: "border-emerald-300/30", gradient: "from-emerald-400/20" },
+    { glow: "bg-violet-500/20 group-hover:bg-violet-500/40", border: "border-violet-300/30", gradient: "from-violet-400/20" },
+    { glow: "bg-rose-500/20 group-hover:bg-rose-500/40", border: "border-rose-300/30", gradient: "from-rose-400/20" }
+];
 
-        {/* Liquid Glass Card */}
-        <div className="h-full bg-white/[0.03] backdrop-blur-[40px] border border-white/20 rounded-[2.5rem] p-8 sm:p-10 flex flex-col justify-between overflow-hidden relative shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)]">
+const ReviewCard = ({ review, index }: { review: Review; index: number }) => {
+    const color = liquidColors[index % liquidColors.length];
 
-            {/* Soft inner glow */}
-            <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
+    return (
+        <div className="w-[85vw] sm:w-[500px] shrink-0 relative group h-full mr-4 sm:mr-8 transition-all duration-500 hover:scale-[1.02]">
+            {/* Deep 3D Shadow Underlay + Colored Glow */}
+            <div className={`absolute inset-x-2 -bottom-2 h-full blur-2xl rounded-[2.5rem] -z-10 transition-all duration-500 ${color.glow}`} />
+            <div className="absolute inset-x-4 -bottom-4 h-full bg-black/40 blur-2xl rounded-[2.5rem] -z-20 transition-all duration-500" />
 
-            <div className="relative z-10">
-                <div className="flex gap-1 text-amber-300 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)] mb-6">
-                    {[...Array(review.rating)].map((_, i) => (
-                        <Star key={i} size={18} fill="currentColor" strokeWidth={0} />
-                    ))}
+            {/* Liquid Glass Card */}
+            <div className={`h-full bg-white/[0.02] backdrop-blur-[40px] border ${color.border} rounded-[2.5rem] p-8 sm:p-10 flex flex-col justify-between overflow-hidden relative shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_8px_32px_rgba(0,0,0,0.4)]`}>
+
+                {/* Soft inner colored glow */}
+                <div className={`absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b ${color.gradient} to-transparent pointer-events-none`} />
+
+                <div className="relative z-10">
+                    <div className="flex gap-1 text-amber-300 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)] mb-6">
+                        {[...Array(review.rating)].map((_, i) => (
+                            <Star key={i} size={18} fill="currentColor" strokeWidth={0} />
+                        ))}
+                    </div>
+                    <p className="text-white/90 text-base sm:text-lg italic leading-relaxed font-serif tracking-wide drop-shadow-sm">
+                        "{review.text}"
+                    </p>
                 </div>
-                <p className="text-white/90 text-base sm:text-lg italic leading-relaxed font-serif tracking-wide drop-shadow-sm">
-                    "{review.text}"
-                </p>
-            </div>
 
-            <div className="relative z-10 mt-8 pt-6 border-t border-white/10 flex flex-col">
-                <span className="font-semibold text-white tracking-widest uppercase font-sans text-sm sm:text-[15px] drop-shadow-sm">
-                    {review.name}
-                </span>
-                <span className="text-white/50 text-xs sm:text-sm mt-1 uppercase tracking-wider font-medium">
-                    {review.location}
-                </span>
+                <div className="relative z-10 mt-8 pt-6 border-t border-white/10 flex flex-col">
+                    <span className="font-semibold text-white tracking-widest uppercase font-sans text-sm sm:text-[15px] drop-shadow-sm">
+                        {review.name}
+                    </span>
+                    <span className="text-white/50 text-xs sm:text-sm mt-1 uppercase tracking-wider font-medium">
+                        {review.location}
+                    </span>
+                </div>
             </div>
         </div>
-    </div>
-);
+    );
+};
 
 export function ClientReviews() {
     // Duplicate the array to create a seamless infinite loop
@@ -161,7 +175,7 @@ export function ClientReviews() {
                     }}
                 >
                     {doubledReviews.map((review, i) => (
-                        <ReviewCard key={`${review.id}-${i}`} review={review} />
+                        <ReviewCard key={`${review.id}-${i}`} review={review} index={i} />
                     ))}
                 </motion.div>
 
