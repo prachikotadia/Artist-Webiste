@@ -108,29 +108,23 @@ export function ClientReviews() {
     return (
         <section className="py-24 sm:py-32 bg-slate-950 relative overflow-hidden flex flex-col justify-center min-h-[80vh]">
 
-            {/* Deep Atmospheric Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0f172a] via-[#1e1b4b] to-[#4c1d95] opacity-80" />
+            {/* Deep Dark Grid Background */}
+            <div className="absolute inset-0 bg-slate-950" />
 
-            {/* Ambient Liquid Light Orbs */}
-            <motion.div
-                animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.3, 0.5, 0.3],
-                    x: [0, 50, 0]
+            {/* Geometric Grid Pattern Overlay */}
+            <div
+                className="absolute inset-0 opacity-20 pointer-events-none"
+                style={{
+                    backgroundImage: `
+                        linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)
+                    `,
+                    backgroundSize: '4rem 4rem'
                 }}
-                transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-[20%] left-[-10%] w-[600px] h-[600px] bg-fuchsia-600/30 rounded-full blur-[120px] pointer-events-none"
             />
-            <motion.div
-                animate={{
-                    scale: [1, 1.4, 1],
-                    opacity: [0.2, 0.4, 0.2],
-                    y: [0, -50, 0]
-                }}
-                transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                className="absolute bottom-[-10%] right-[-5%] w-[700px] h-[700px] bg-blue-600/30 rounded-full blur-[150px] pointer-events-none"
-            />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[300px] bg-amber-500/10 rounded-full blur-[100px] pointer-events-none" />
+
+            {/* Subtle Center Glow to illuminate the glass */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[500px] bg-white/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="container mx-auto px-6 mb-12 sm:mb-20 text-center relative z-20">
                 <motion.div
