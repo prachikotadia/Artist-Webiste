@@ -34,14 +34,16 @@ export function ClientReviews() {
     const doubledReviews = [...clientReviews, ...clientReviews];
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(true);
+    const [isPaused, setIsPaused] = useState(false);
 
     // Auto-advance interval every 5 seconds
     useEffect(() => {
+        if (isPaused) return;
         const timer = setInterval(() => {
             setCurrentIndex((prev) => prev + 1);
         }, 5000);
         return () => clearInterval(timer);
-    }, []);
+    }, [isPaused]);
 
     // Handle seamless infinite looping
     useEffect(() => {
@@ -62,6 +64,18 @@ export function ClientReviews() {
             return () => clearTimeout(timeout);
         }
     }, [currentIndex]);
+
+    const handleDragEnd = (e: any, { offset }: any) => {
+        const swipe = offset.x;
+        // Swipe left (next)
+        if (swipe < -50) {
+            setCurrentIndex((prev) => prev + 1);
+        }
+        // Swipe right (prev)
+        else if (swipe > 50) {
+            setCurrentIndex((prev) => Math.max(prev - 1, 0));
+        }
+    };
 
     return (
         <section className="py-24 sm:py-32 bg-cream relative overflow-hidden">
@@ -86,9 +100,19 @@ export function ClientReviews() {
             </div>
 
             {/* Stepped Carousel */}
-            <div className="relative w-full overflow-hidden py-4 px-4 sm:px-8 max-w-[1920px] mx-auto">
+            <div
+                className="relative w-full overflow-hidden py-4 px-4 sm:px-8 max-w-[1920px] mx-auto cursor-grab active:cursor-grabbing"
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+                onTouchStart={() => setIsPaused(true)}
+                onTouchEnd={() => setIsPaused(false)}
+            >
                 <motion.div
                     className="flex shrink-0 will-change-transform items-stretch"
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.15}
+                    onDragEnd={handleDragEnd}
                     animate={{ x: `-${(currentIndex * 100) / doubledReviews.length}%` }}
                     transition={{
                         duration: isTransitioning ? 0.8 : 0,
