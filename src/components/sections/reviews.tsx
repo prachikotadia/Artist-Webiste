@@ -110,13 +110,19 @@ export function ClientReviews() {
                 onTouchStart={() => setIsPaused(true)}
                 onTouchEnd={() => setIsPaused(false)}
             >
+                {/* 
+                  Mobile: 85vw width + 1rem (16px) mr-4
+                  Desktop: 400px width + 2rem (32px) mr-8
+                */}
                 <motion.div
                     className="flex shrink-0 will-change-transform items-stretch"
                     drag="x"
                     dragConstraints={{ left: 0, right: 0 }}
                     dragElastic={0.15}
                     onDragEnd={handleDragEnd}
-                    animate={{ x: `-${(currentIndex * 100) / doubledReviews.length}%` }}
+                    animate={{
+                        x: `calc(-${currentIndex} * (min(400px, 85vw) + min(2rem, 1rem + 2vw)))`
+                    }}
                     transition={{
                         duration: isTransitioning ? 0.8 : 0,
                         ease: [0.16, 1, 0.3, 1] // Soft, premium snap ease
@@ -130,17 +136,17 @@ export function ClientReviews() {
                 {/* Manual Swipe Controls */}
                 <button
                     onClick={prevReview}
-                    className="absolute left-2 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/20 bg-white/10 backdrop-blur-md flex items-center justify-center text-ink/70 hover:bg-white/30 hover:text-ink transition-colors z-20 shadow-lg"
+                    className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/20 bg-white/10 backdrop-blur-md flex items-center justify-center text-ink/70 hover:bg-white/30 hover:text-ink transition-colors z-20 shadow-lg"
                     aria-label="Previous Review"
                 >
-                    <ChevronLeft className="w-6 h-6" />
+                    <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
                 <button
                     onClick={nextReview}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/20 bg-white/10 backdrop-blur-md flex items-center justify-center text-ink/70 hover:bg-white/30 hover:text-ink transition-colors z-20 shadow-lg"
+                    className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/20 bg-white/10 backdrop-blur-md flex items-center justify-center text-ink/70 hover:bg-white/30 hover:text-ink transition-colors z-20 shadow-lg"
                     aria-label="Next Review"
                 >
-                    <ChevronRight className="w-6 h-6" />
+                    <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                 </button>
             </div>
         </section>
