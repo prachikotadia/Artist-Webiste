@@ -52,8 +52,8 @@ const generateAlbums = (): Album[] => {
             title: TITLES[i % TITLES.length] + (i > TITLES.length ? ` ${Math.floor(i / TITLES.length)}` : ''),
             year: 2021 + (i % 6), // 2021-2026
             category,
-            // Using picsum but with random art-related search parameters simulated by the seed
-            image: `https://picsum.photos/seed/${seedValue}/800/1000`,
+            // Using Unsplash with specific keywords for colorful oil paintings
+            image: `https://source.unsplash.com/random/800x1000/?oil,painting,colorful,art&sig=${i}`,
         });
     }
 
