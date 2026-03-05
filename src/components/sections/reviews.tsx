@@ -4,8 +4,10 @@ import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { clientReviews, Review } from "@/data/reviews";
 
+import { useState, useEffect } from "react";
+
 const ReviewCard = ({ review }: { review: Review }) => (
-    <div className="w-[300px] sm:w-[400px] shrink-0 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-[0_8px_32px_rgba(0,0,0,0.05)] mr-4 sm:mr-8 transition-transform hover:scale-[1.02]">
+    <div className="w-[85vw] sm:w-[400px] shrink-0 bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-[0_8px_32px_rgba(0,0,0,0.05)] mr-4 sm:mr-8 transition-transform hover:scale-[1.02] h-full">
         <div>
             <div className="flex text-amber-500 mb-4">
                 {[...Array(review.rating)].map((_, i) => (
@@ -30,6 +32,36 @@ const ReviewCard = ({ review }: { review: Review }) => (
 export function ClientReviews() {
     // Duplicate the array to create a seamless infinite loop
     const doubledReviews = [...clientReviews, ...clientReviews];
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isTransitioning, setIsTransitioning] = useState(true);
+
+    // Auto-advance interval every 5 seconds
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentIndex((prev) => prev + 1);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
+
+    // Handle seamless infinite looping
+    useEffect(() => {
+        // When we hit the exact length of original reviews, we've swiped one full block.
+        // Item exactly at `clientReviews.length` looks identical to index 0.
+        if (currentIndex === clientReviews.length) {
+            // Wait for the 0.8s animation to fully finish sliding into place
+            const timeout = setTimeout(() => {
+                setIsTransitioning(false); // Turn off animations
+                setCurrentIndex(0); // Snap instantly back to actual beginning
+            }, 800);
+            return () => clearTimeout(timeout);
+        } else if (currentIndex === 0) {
+            // Once we're safely back at 0, turn animations back on for the next move
+            const timeout = setTimeout(() => {
+                setIsTransitioning(true);
+            }, 50);
+            return () => clearTimeout(timeout);
+        }
+    }, [currentIndex]);
 
     return (
         <section className="py-24 sm:py-32 bg-cream relative overflow-hidden">
@@ -53,20 +85,14 @@ export function ClientReviews() {
                 </motion.div>
             </div>
 
-            {/* The Infinite Carousel */}
-            <div className="relative w-full overflow-hidden py-4 flex group">
+            {/* Stepped Carousel */}
+            <div className="relative w-full overflow-hidden py-4 px-4 sm:px-8 max-w-[1920px] mx-auto">
                 <motion.div
-                    className="flex shrink-0 will-change-transform"
-                    animate={{
-                        x: [0, -100 * clientReviews.length + "%"],
-                    }}
+                    className="flex shrink-0 will-change-transform items-stretch"
+                    animate={{ x: `-${(currentIndex * 100) / doubledReviews.length}%` }}
                     transition={{
-                        x: {
-                            repeat: Infinity,
-                            repeatType: "loop",
-                            duration: clientReviews.length * 6, // 6 seconds per card approx
-                            ease: "linear",
-                        },
+                        duration: isTransitioning ? 0.8 : 0,
+                        ease: [0.16, 1, 0.3, 1] // Soft, premium snap ease
                     }}
                 >
                     {doubledReviews.map((review, i) => (
