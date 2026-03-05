@@ -349,7 +349,7 @@ function FanItem({ item, i, itemAngle, totalItems, rotation, activeIndex, isDrag
         >
             <div
                 style={{ width: layout.cardWidth, height: layout.cardHeight }}
-                className={`bg-white rounded-[20px] lg:rounded-[32px] overflow-hidden relative transition-all duration-300 pointer-events-auto cursor-pointer p-1.5 lg:p-2.5 border border-ink/5 ${isCenter ? 'shadow-2xl' : 'shadow-md opacity-80 hover:opacity-100'}`}
+                className={`rounded-[16px] lg:rounded-[24px] overflow-hidden relative transition-all duration-300 pointer-events-auto cursor-pointer ${isCenter ? 'shadow-[0_20px_50px_rgba(0,0,0,0.3)] scale-[1.02]' : 'shadow-lg opacity-80 hover:opacity-100 hover:shadow-xl hover:scale-[1.01]'}`}
                 onClick={() => {
                     if (isDragging) return;
                     if (isCenter) {
@@ -372,7 +372,7 @@ function FanItem({ item, i, itemAngle, totalItems, rotation, activeIndex, isDrag
                     }
                 }}
             >
-                <div className="relative w-full h-full rounded-[14px] lg:rounded-[24px] overflow-hidden">
+                <div className="relative w-full h-full overflow-hidden">
                     <Image
                         src={item.image}
                         alt={item.title}
