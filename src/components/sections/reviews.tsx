@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { clientReviews, Review } from "@/data/reviews";
 
 import { useState, useEffect } from "react";
@@ -77,6 +77,9 @@ export function ClientReviews() {
         }
     };
 
+    const nextReview = () => setCurrentIndex((prev) => prev + 1);
+    const prevReview = () => setCurrentIndex((prev) => Math.max(prev - 1, 0));
+
     return (
         <section className="py-24 sm:py-32 bg-cream relative overflow-hidden">
             {/* Background glowing orbs to enhance glassmorphism */}
@@ -123,6 +126,22 @@ export function ClientReviews() {
                         <ReviewCard key={`${review.id}-${i}`} review={review} />
                     ))}
                 </motion.div>
+
+                {/* Manual Swipe Controls */}
+                <button
+                    onClick={prevReview}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/20 bg-white/10 backdrop-blur-md flex items-center justify-center text-ink/70 hover:bg-white/30 hover:text-ink transition-colors z-20 shadow-lg"
+                    aria-label="Previous Review"
+                >
+                    <ChevronLeft className="w-6 h-6" />
+                </button>
+                <button
+                    onClick={nextReview}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full border border-white/20 bg-white/10 backdrop-blur-md flex items-center justify-center text-ink/70 hover:bg-white/30 hover:text-ink transition-colors z-20 shadow-lg"
+                    aria-label="Next Review"
+                >
+                    <ChevronRight className="w-6 h-6" />
+                </button>
             </div>
         </section>
     );
