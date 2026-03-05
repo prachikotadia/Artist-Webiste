@@ -32,7 +32,7 @@ export function HomeHero() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut" }}
-                className="w-full relative z-30 shrink-0 md:-mt-10 pointer-events-none"
+                className="w-full relative z-30 shrink-0 -mt-10 sm:-mt-12 md:-mt-10 pointer-events-none"
             >
                 <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#FDFBF7] to-transparent z-40 pointer-events-none" />
                 <div className="pointer-events-auto">
@@ -41,7 +41,7 @@ export function HomeHero() {
             </motion.div>
 
             {/* Ambient Background Video - Positioned between FanWheel (z-30) and Text (z-60) */}
-            <div className="absolute top-[25%] left-1/2 -translate-x-1/2 w-full max-w-[800px] aspect-video z-[40] pointer-events-none opacity-30 mix-blend-multiply flex items-center justify-center">
+            <div className="absolute top-[18%] md:top-[25%] left-1/2 -translate-x-1/2 w-full max-w-[800px] aspect-video z-[40] pointer-events-none opacity-30 mix-blend-multiply flex items-center justify-center">
                 <video
                     src="/videos/Merging_Colors_Video_and_Logo.mp4"
                     autoPlay
@@ -54,7 +54,7 @@ export function HomeHero() {
             </div>
 
             {/* Text Content - Positioned UP directly into the negative space of the wheel */}
-            <div className="container mx-auto px-4 md:px-6 relative z-[60] w-full flex flex-col items-center text-center -mt-[120px] sm:-mt-[160px] md:-mt-[220px] pointer-events-none pb-10">
+            <div className="container mx-auto px-4 md:px-6 relative z-[60] w-full flex flex-col items-center text-center -mt-[180px] sm:-mt-[200px] md:-mt-[220px] pointer-events-none pb-10">
 
                 {/* Main Typography Headline */}
                 <motion.div
