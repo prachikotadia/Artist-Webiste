@@ -41,7 +41,7 @@ export function ClientReviews() {
         if (isPaused) return;
         const timer = setInterval(() => {
             setCurrentIndex((prev) => prev + 1);
-        }, 5000);
+        }, 3500);
         return () => clearInterval(timer);
     }, [isPaused]);
 
@@ -50,11 +50,11 @@ export function ClientReviews() {
         // When we hit the exact length of original reviews, we've swiped one full block.
         // Item exactly at `clientReviews.length` looks identical to index 0.
         if (currentIndex === clientReviews.length) {
-            // Wait for the 0.8s animation to fully finish sliding into place
+            // Wait for the animation to fully finish sliding into place
             const timeout = setTimeout(() => {
                 setIsTransitioning(false); // Turn off animations
                 setCurrentIndex(0); // Snap instantly back to actual beginning
-            }, 800);
+            }, 600);
             return () => clearTimeout(timeout);
         } else if (currentIndex === 0) {
             // Once we're safely back at 0, turn animations back on for the next move
@@ -124,7 +124,7 @@ export function ClientReviews() {
                         x: `calc(-${currentIndex} * (min(400px, 85vw) + min(2rem, 1rem + 2vw)))`
                     }}
                     transition={{
-                        duration: isTransitioning ? 0.8 : 0,
+                        duration: isTransitioning ? 0.6 : 0,
                         ease: [0.16, 1, 0.3, 1] // Soft, premium snap ease
                     }}
                 >
