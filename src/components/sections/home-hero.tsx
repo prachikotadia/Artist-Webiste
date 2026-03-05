@@ -40,6 +40,19 @@ export function HomeHero() {
                 </div>
             </motion.div>
 
+            {/* Ambient Background Video - Positioned between FanWheel (z-30) and Text (z-60) */}
+            <div className="absolute top-[25%] left-1/2 -translate-x-1/2 w-full max-w-[800px] aspect-video z-[40] pointer-events-none opacity-30 mix-blend-multiply flex items-center justify-center">
+                <video
+                    src="/videos/Merging_Colors_Video_and_Logo.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                    style={{ maskImage: "radial-gradient(circle, black 30%, transparent 70%)", WebkitMaskImage: "radial-gradient(circle, black 30%, transparent 70%)" }}
+                />
+            </div>
+
             {/* Text Content - Positioned UP directly into the negative space of the wheel */}
             <div className="container mx-auto px-4 md:px-6 relative z-[60] w-full flex flex-col items-center text-center -mt-[120px] sm:-mt-[160px] md:-mt-[220px] pointer-events-none pb-10">
 

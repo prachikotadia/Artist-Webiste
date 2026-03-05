@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display, Caveat, IBM_Plex_Serif, Shadows_Into_Light_Two } from "next/font/google";
 import "./globals.css";
-import { SplashProvider } from "@/components/layout/splash-provider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -45,7 +44,6 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} ${caveat.variable} ${ibmPlexSerif.variable} ${shadowsIntoLight.variable} font-sans bg-cream text-ink antialiased`}
       >
-        <SplashProvider />
         {children}
       </body>
     </html>
