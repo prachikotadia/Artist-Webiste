@@ -24,24 +24,24 @@ const ReviewCard = ({ review, index }: { review: Review; index: number }) => {
             <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 blur-[60px] rounded-full -z-10 transition-all duration-500 ${hue} opacity-40 group-hover:opacity-70`} />
 
             {/* Ultra-Transparent Premium Glass Card */}
-            <div className="h-full bg-white/[0.02] backdrop-blur-xl border border-white/[0.08] rounded-[2.5rem] p-8 sm:p-10 flex flex-col justify-between overflow-hidden relative shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),0_8px_32px_rgba(0,0,0,0.3)] text-white">
+            <div className="h-full bg-white/40 backdrop-blur-xl border border-white/60 rounded-[2.5rem] p-8 sm:p-10 flex flex-col justify-between overflow-hidden relative shadow-[inset_0_1px_1px_rgba(255,255,255,0.8),0_8px_32px_rgba(0,0,0,0.05)] text-stone-900">
 
                 <div className="relative z-10">
-                    <div className="flex gap-1 text-amber-300/80 drop-shadow-[0_0_8px_rgba(251,191,36,0.3)] mb-6">
+                    <div className="flex gap-1 text-amber-500 drop-shadow-[0_0_4px_rgba(245,158,11,0.3)] mb-6">
                         {[...Array(review.rating)].map((_, i) => (
                             <Star key={i} size={18} fill="currentColor" strokeWidth={0} />
                         ))}
                     </div>
-                    <p className="text-white/90 text-base sm:text-lg italic leading-relaxed font-serif tracking-wide drop-shadow-sm">
+                    <p className="text-stone-800 text-base sm:text-lg italic leading-relaxed font-serif tracking-wide">
                         "{review.text}"
                     </p>
                 </div>
 
-                <div className="relative z-10 mt-8 pt-6 border-t border-white/10 flex flex-col">
-                    <span className="font-semibold text-white tracking-widest uppercase font-sans text-sm sm:text-[15px] drop-shadow-sm">
+                <div className="relative z-10 mt-8 pt-6 border-t border-stone-300 flex flex-col">
+                    <span className="font-semibold text-stone-900 tracking-widest uppercase font-sans text-sm sm:text-[15px]">
                         {review.name}
                     </span>
-                    <span className="text-white/50 text-xs sm:text-sm mt-1 uppercase tracking-wider font-medium">
+                    <span className="text-stone-500 text-xs sm:text-sm mt-1 uppercase tracking-wider font-medium">
                         {review.location}
                     </span>
                 </div>
@@ -104,23 +104,23 @@ export function ClientReviews() {
     return (
         <section className="py-24 sm:py-32 relative overflow-hidden flex flex-col justify-center min-h-[80vh] bg-transparent">
 
-            {/* Deep Dark Grid Background with Smooth Blending Mask */}
-            <div className="absolute inset-0 bg-slate-950 [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] pointer-events-none -z-30" />
+            {/* Light Grid Background with Smooth Blending Mask */}
+            <div className="absolute inset-0 bg-[#FAF9F6] [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] pointer-events-none -z-30" />
 
             {/* Geometric Grid Pattern Overlay with Smooth Blending Mask */}
             <div
                 className="absolute inset-0 opacity-10 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] -z-20"
                 style={{
                     backgroundImage: `
-                        linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)
+                        linear-gradient(to right, rgba(0,0,0,0.3) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(0,0,0,0.3) 1px, transparent 1px)
                     `,
                     backgroundSize: '4rem 4rem'
                 }}
             />
 
             {/* Subtle Center Glow to gently illuminate the sheer glass layer */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[500px] bg-white/5 rounded-full blur-[120px] pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] -z-10" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[500px] bg-white/60 rounded-full blur-[100px] pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] -z-10" />
 
             <div className="container mx-auto px-6 mb-12 sm:mb-20 text-center relative z-20">
                 <motion.div
@@ -129,10 +129,10 @@ export function ClientReviews() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-white mb-6 drop-shadow-lg">
+                    <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl text-stone-900 mb-6 drop-shadow-sm">
                         Client Experiences
                     </h2>
-                    <p className="text-white/60 max-w-2xl mx-auto text-lg sm:text-xl font-light tracking-wide">
+                    <p className="text-stone-600 max-w-2xl mx-auto text-lg sm:text-xl font-light tracking-wide">
                         Hear from collectors and art enthusiasts across the globe who have welcomed an Arvishwa original into their lives.
                     </p>
                 </motion.div>
@@ -172,14 +172,14 @@ export function ClientReviews() {
                 {/* Manual Swipe Controls */}
                 <button
                     onClick={prevReview}
-                    className="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-white/30 bg-white/10 backdrop-blur-2xl flex items-center justify-center text-white/80 hover:bg-white/20 hover:text-white hover:scale-110 transition-all z-30 shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
+                    className="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-white/60 bg-white/40 backdrop-blur-2xl flex items-center justify-center text-stone-700 hover:bg-white hover:text-stone-900 hover:scale-110 transition-all z-30 shadow-[0_8px_32px_rgba(0,0,0,0.05)]"
                     aria-label="Previous Review"
                 >
                     <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
                 </button>
                 <button
                     onClick={nextReview}
-                    className="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-white/30 bg-white/10 backdrop-blur-2xl flex items-center justify-center text-white/80 hover:bg-white/20 hover:text-white hover:scale-110 transition-all z-30 shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
+                    className="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-white/60 bg-white/40 backdrop-blur-2xl flex items-center justify-center text-stone-700 hover:bg-white hover:text-stone-900 hover:scale-110 transition-all z-30 shadow-[0_8px_32px_rgba(0,0,0,0.05)]"
                     aria-label="Next Review"
                 >
                     <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
