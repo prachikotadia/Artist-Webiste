@@ -7,12 +7,12 @@ import { clientReviews, Review } from "@/data/reviews";
 import { useState, useEffect } from "react";
 
 const liquidColors = [
-    { glow: "bg-pink-500/20 group-hover:bg-pink-500/40", border: "border-pink-300/30", gradient: "from-pink-400/20" },
-    { glow: "bg-cyan-500/20 group-hover:bg-cyan-500/40", border: "border-cyan-300/30", gradient: "from-cyan-400/20" },
-    { glow: "bg-amber-500/20 group-hover:bg-amber-500/40", border: "border-amber-300/30", gradient: "from-amber-400/20" },
-    { glow: "bg-emerald-500/20 group-hover:bg-emerald-500/40", border: "border-emerald-300/30", gradient: "from-emerald-400/20" },
-    { glow: "bg-violet-500/20 group-hover:bg-violet-500/40", border: "border-violet-300/30", gradient: "from-violet-400/20" },
-    { glow: "bg-rose-500/20 group-hover:bg-rose-500/40", border: "border-rose-300/30", gradient: "from-rose-400/20" }
+    { glow: "bg-pink-500/30 group-hover:bg-pink-500/50", border: "border-pink-300/20", gradient: "from-pink-500/30 via-pink-400/5" },
+    { glow: "bg-cyan-500/30 group-hover:bg-cyan-500/50", border: "border-cyan-300/20", gradient: "from-cyan-500/30 via-cyan-400/5" },
+    { glow: "bg-amber-500/30 group-hover:bg-amber-500/50", border: "border-amber-300/20", gradient: "from-amber-500/30 via-amber-400/5" },
+    { glow: "bg-emerald-500/30 group-hover:bg-emerald-500/50", border: "border-emerald-300/20", gradient: "from-emerald-500/30 via-emerald-400/5" },
+    { glow: "bg-violet-500/30 group-hover:bg-violet-500/50", border: "border-violet-300/20", gradient: "from-violet-500/30 via-violet-400/5" },
+    { glow: "bg-rose-500/30 group-hover:bg-rose-500/50", border: "border-rose-300/20", gradient: "from-rose-500/30 via-rose-400/5" }
 ];
 
 const ReviewCard = ({ review, index }: { review: Review; index: number }) => {
@@ -25,10 +25,10 @@ const ReviewCard = ({ review, index }: { review: Review; index: number }) => {
             <div className="absolute inset-x-4 -bottom-4 h-full bg-black/40 blur-2xl rounded-[2.5rem] -z-20 transition-all duration-500" />
 
             {/* Liquid Glass Card */}
-            <div className={`h-full bg-white/[0.02] backdrop-blur-[40px] border ${color.border} rounded-[2.5rem] p-8 sm:p-10 flex flex-col justify-between overflow-hidden relative shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_8px_32px_rgba(0,0,0,0.4)]`}>
+            <div className={`h-full bg-white/0 backdrop-blur-[24px] border ${color.border} rounded-[2.5rem] p-8 sm:p-10 flex flex-col justify-between overflow-hidden relative shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_8px_32px_rgba(0,0,0,0.4)]`}>
 
                 {/* Soft inner colored glow */}
-                <div className={`absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b ${color.gradient} to-transparent pointer-events-none`} />
+                <div className={`absolute inset-0 bg-gradient-to-br ${color.gradient} to-transparent pointer-events-none opacity-80`} />
 
                 <div className="relative z-10">
                     <div className="flex gap-1 text-amber-300 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)] mb-6">
