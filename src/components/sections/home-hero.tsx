@@ -24,24 +24,10 @@ const fanWheelArtworks = [
 
 export function HomeHero() {
     return (
-        <section id="home" className="pt-0 relative overflow-hidden flex flex-col items-center justify-start min-h-screen bg-[#FDFBF7]">
+        <section id="home" className="pt-24 relative overflow-hidden flex flex-col items-center justify-start min-h-screen bg-[#FDFBF7]">
 
-            {/* FanWheel arches OVER the text */}
-            {/* FanWheel arches OVER the text */}
-            <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                className="w-full relative z-30 shrink-0 -mt-10 sm:-mt-12 md:-mt-10 pointer-events-none"
-            >
-                <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#FDFBF7] to-transparent z-40 pointer-events-none" />
-                <div className="pointer-events-auto">
-                    <FanWheel items={fanWheelArtworks} />
-                </div>
-            </motion.div>
-
-            {/* Ambient Background Video - Positioned between FanWheel (z-30) and Text (z-60) */}
-            <div className="absolute top-[18%] md:top-[25%] left-1/2 -translate-x-1/2 w-full max-w-[800px] aspect-video z-[40] pointer-events-none opacity-30 mix-blend-multiply flex items-center justify-center">
+            {/* Ambient Background Video - Positioned absolutely in the center behind everything */}
+            <div className="absolute top-[20%] md:top-[25%] left-1/2 -translate-x-1/2 w-full max-w-[800px] aspect-video z-[20] pointer-events-none opacity-30 mix-blend-multiply flex items-center justify-center">
                 <video
                     src="/videos/Merging_Colors_Video_and_Logo.mp4"
                     autoPlay
@@ -53,8 +39,8 @@ export function HomeHero() {
                 />
             </div>
 
-            {/* Text Content - Positioned UP directly into the negative space of the wheel */}
-            <div className="container mx-auto px-4 md:px-6 relative z-[60] w-full flex flex-col items-center text-center -mt-[180px] sm:-mt-[200px] md:-mt-[220px] pointer-events-none pb-10">
+            {/* Text Content - Rendered naturally at the top of the flex container */}
+            <div className="container mx-auto px-4 md:px-6 relative z-[60] w-full flex flex-col items-center text-center mt-4 md:mt-10 pointer-events-none">
 
                 {/* Main Typography Headline */}
                 <motion.div
@@ -87,15 +73,28 @@ export function HomeHero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-                    className="mt-6 md:mt-8 mb-12 md:mb-16 pointer-events-auto"
+                    className="mt-6 md:mt-8 mb-8 md:mb-10 pointer-events-auto"
                 >
                     <button className="bg-[#2A2D34] hover:bg-[#1C1C1C] text-white px-8 md:px-10 py-3.5 md:py-4 rounded-full font-medium transition-colors flex items-center justify-center gap-2 text-sm md:text-base shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
                         Start Exploring Now <span className="text-lg">→</span>
                     </button>
                 </motion.div>
 
-
             </div>
+
+            {/* FanWheel - Rendered at the bottom, using mt-auto to naturally fill vertical dead space */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className="w-full relative z-30 shrink-0 mt-auto pointer-events-none flex flex-col items-center justify-end"
+            >
+                <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#FDFBF7] to-transparent z-40 pointer-events-none" />
+                <div className="pointer-events-auto w-full">
+                    <FanWheel items={fanWheelArtworks} />
+                </div>
+            </motion.div>
+
         </section>
     );
 }
