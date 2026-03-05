@@ -1,0 +1,60 @@
+export interface Review {
+    id: string;
+    name: string;
+    location: string;
+    rating: number; // 5
+    text: string;
+}
+
+export const clientReviews: Review[] = [
+    { id: "rev-1", name: "Eleanor Vance", location: "New York, USA", rating: 5, text: "Absolutely stunning work. The commission exceeded every expectation and captures the exact emotion I was hoping for. A true museum-quality piece." },
+    { id: "rev-2", name: "Priya Patel", location: "Mumbai, India", rating: 5, text: "Vishwa's attention to detail is remarkable. The textures and colors bring so much life to our living room. It's not just a painting; it's an experience." },
+    { id: "rev-3", name: "James Stirling", location: "London, UK", rating: 5, text: "I've purchased art globally, and the quality here is unparalleled. The framing, the canvas texture, the sheer artistry—simply breathtaking." },
+    { id: "rev-4", name: "Amelie Bouchard", location: "Toronto, Canada", rating: 5, text: "A masterful blend of traditional technique and modern emotion. The painting arrived perfectly packaged and looks even better in person." },
+    { id: "rev-5", name: "Michael Chang", location: "San Francisco, USA", rating: 5, text: "The custom portrait project was handled with such professionalism and grace. The final result is a family heirloom we will cherish forever." },
+    { id: "rev-6", name: "Rahul Sharma", location: "Delhi, India", rating: 5, text: "Exceptional artistry. The depth of the colors and the brushwork are mesmerizing. Highly recommend Arvishwa Studio for serious collectors." },
+    { id: "rev-7", name: "Sarah Jenkins", location: "Manchester, UK", rating: 5, text: "The landscape piece I bought transports me every time I look at it. There is a profound sense of peace in the composition. Beautiful." },
+    { id: "rev-8", name: "David O'Connor", location: "Vancouver, Canada", rating: 5, text: "Brilliant execution on a very complex commission. Communication was excellent throughout the process, and the final artwork is phenomenal." },
+    { id: "rev-9", name: "Elena Rodriguez", location: "Miami, USA", rating: 5, text: "The vibrancy of the colors is incredible. It has completely transformed my studio space. I will definitely be returning for more pieces." },
+    { id: "rev-10", name: "Ananya Desai", location: "Ahmedabad, India", rating: 5, text: "Such soul and devotion reflect in the art. The Divine Love painting brings a deeply spiritual and serene aura to our home." },
+    { id: "rev-11", name: "William Hunt", location: "Edinburgh, UK", rating: 5, text: "A truly exceptional artist. The use of mixed media creates a texture that is both tactile and visually stunning. Worth every penny." },
+    { id: "rev-12", name: "Chloe Tremblay", location: "Montreal, Canada", rating: 5, text: "The abstract motion piece I acquired is dynamic and endlessly fascinating. It's the focal point of my entire apartment." },
+    { id: "rev-13", name: "Robert Lewis", location: "Chicago, USA", rating: 5, text: "The attention to lighting and shadow in the portrait is masterful. It feels incredibly alive. A brilliant addition to my collection." },
+    { id: "rev-14", name: "Vikram Singh", location: "Jaipur, India", rating: 5, text: "The fusion of traditional themes with contemporary styling is done so elegantly. The artwork commands attention in the best way possible." },
+    { id: "rev-15", name: "Emma Thompson", location: "Bristol, UK", rating: 5, text: "I bought a piece from the 'Horizons' collection, and it’s exquisite. The ordering process was seamless and delivery was prompt." },
+    { id: "rev-16", name: "Liam MacDonald", location: "Calgary, Canada", rating: 5, text: "Incredible talent. The charcoal work has a hauntingly beautiful quality that I haven't seen anywhere else. Highly recommended." },
+    { id: "rev-17", name: "Olivia Martinez", location: "Austin, USA", rating: 5, text: "The colors have are so rich and deeply layered. Every time I walk past the painting, I notice a new detail. Simply magnificent." },
+    { id: "rev-18", name: "Arjun Reddy", location: "Hyderabad, India", rating: 5, text: "Fantastic experience from start to finish. The commission was delivered on time and the quality is exactly as promised—world class." },
+    { id: "rev-19", name: "Sophia Clark", location: "Oxford, UK", rating: 5, text: "A beautiful balance of chaos and order in the abstract pieces. It speaks to the soul. I am thrilled with my purchase." },
+    { id: "rev-20", name: "Noah Gagnon", location: "Ottawa, Canada", rating: 5, text: "The gallery quality is evident the moment you see it. The framing was impeccable, and the artwork itself is a true masterpiece." },
+    { id: "rev-21", name: "Mia Jackson", location: "Seattle, USA", rating: 5, text: "I commissioned a portrait of my late grandfather, and the likeness and emotion captured brought tears to my eyes. Truly a gifted artist." },
+    { id: "rev-22", name: "Kavya Iyer", location: "Chennai, India", rating: 5, text: "The intricate details in the 'Sacred Form' painting are jaw-dropping. It adds such a divine presence to our puja room." },
+    { id: "rev-23", name: "Thomas Wright", location: "Liverpool, UK", rating: 5, text: "I've followed Vishwa's work for a while now, and finally purchasing an original was the best decision. The texture is unbelievable." },
+    { id: "rev-24", name: "Charlotte Roy", location: "Quebec City, Canada", rating: 5, text: "The watercolor techniques used are so fluid and ethereal. It's like poetry on canvas. A beautiful addition to my home office." },
+    { id: "rev-25", name: "Daniel Lee", location: "Boston, USA", rating: 5, text: "Exceeded my expectations entirely. The piece is bold, vibrant, and incredibly moving. The studio's professionalism is unmatched." },
+    { id: "rev-26", name: "Neha Gupta", location: "Bangalore, India", rating: 5, text: "We wanted a statement piece for our new office lobby, and the 'Urban Geometry' painting was perfect. Everyone asks about it." },
+    { id: "rev-27", name: "Isabella Harris", location: "Glasgow, UK", rating: 5, text: "The depth of field in the landscape paintings is astonishing. You feel as though you could step right into the canvas. Brilliant work." },
+    { id: "rev-28", name: "Lucas Martin", location: "Edmonton, Canada", rating: 5, text: "A seamless international purchase. The art arrived in pristine condition, and the colors are even more vivid in natural light." },
+    { id: "rev-29", name: "Grace Robinson", location: "Denver, USA", rating: 5, text: "The emotional resonance of the 'Silent Horizon' piece is profound. It's a contemplative, beautiful work of art that I treasure." },
+    { id: "rev-30", name: "Aditya Verma", location: "Pune, India", rating: 5, text: "Vishwa has a unique ability to capture light and shadow. The painting feels so incredibly real. Fantastic commitment to the craft." },
+    { id: "rev-31", name: "Harry Davies", location: "Cardiff, UK", rating: 5, text: "I bought this as an anniversary gift for my wife, and she was absolutely blown away. The detail and passion in the art are undeniable." },
+    { id: "rev-32", name: "Zoe Pelletier", location: "Halifax, Canada", rating: 5, text: "The mixed media textures are so innovative. It gives the artwork a 3D quality that changes as you walk around the room. Fascinating." },
+    { id: "rev-33", name: "Benjamin White", location: "Atlanta, USA", rating: 5, text: "From the initial consultation to the final delivery, the commission process was an absolute dream. The final piece is spectacular." },
+    { id: "rev-34", name: "Pooja Menon", location: "Kochi, India", rating: 5, text: "The artwork 'Women Gathering' perfectly captures the strength and grace of its subjects. A very powerful and emotional piece." },
+    { id: "rev-35", name: "Emily Walker", location: "Leeds, UK", rating: 5, text: "I was looking for something specific for my dining room, and the custom painting Vishwa created is the perfect centerpiece." },
+    { id: "rev-36", name: "Jack Wilson", location: "Victoria, Canada", rating: 5, text: "The ocean series is phenomenal. The way the light hits the water in the painting is so realistic. I can almost hear the waves." },
+    { id: "rev-37", name: "Lily Hall", location: "Portland, USA", rating: 5, text: "Such a talented artist with a diverse range of skills. Every piece in the 'Nocturnes' collection is a masterpiece of mood and tone." },
+    { id: "rev-38", name: "Ravi Kumar", location: "Surat, India", rating: 5, text: "The sheer scale and impact of the canvas is breathtaking. It completely elevates the aesthetic of our entire home." },
+    { id: "rev-39", name: "George Green", location: "Belfast, UK", rating: 5, text: "An absolute delight. The painting brings so much warmth and energy into my space. The packaging was also incredibly secure." },
+    { id: "rev-40", name: "Avery Morrison", location: "Winnipeg, Canada", rating: 5, text: "I am mesmerized by the intricate detailing in the 'String Dynamics' piece. It shows an incredible level of patience and skill." },
+    { id: "rev-41", name: "Samuel King", location: "Dallas, USA", rating: 5, text: "The colors pop off the canvas! It's rare to find an artist whose online portfolio matches the physical works so perfectly." },
+    { id: "rev-42", name: "Sneha Joshi", location: "Vadodara, India", rating: 5, text: "The devotion captured in the 'Radha Krishna' paintings is beautiful. It feels deeply spiritual and was painted with great reverence." },
+    { id: "rev-43", name: "Amelia Baker", location: "Newcastle, UK", rating: 5, text: "A truly luxurious addition to my home. The framing is elegant and perfectly complements the stunning artwork within. Five stars." },
+    { id: "rev-44", name: "Logan Scott", location: "Regina, Canada", rating: 5, text: "The abstract paintings have such a wonderful sense of movement and energy. They constantly draw the eye. Very impressed." },
+    { id: "rev-45", name: "Victoria Adams", location: "Los Angeles, USA", rating: 5, text: "Working with Vishwa on a custom piece was a collaborative and inspiring experience. The final result is a true work of art." },
+    { id: "rev-46", name: "Karan Singh", location: "Chandigarh, India", rating: 5, text: "The 'Golden Hour' study is the first thing people notice when they enter my house. The mastery of color is simply outstanding." },
+    { id: "rev-47", name: "Oscar Turner", location: "Nottingham, UK", rating: 5, text: "I purchased a small study directly from the studio, and it contains as much detail and passion as a massive mural. Incredible work." },
+    { id: "rev-48", name: "Ella Campbell", location: "St. John's, Canada", rating: 5, text: "The coastal memories collection resonated with me deeply. The piece I bought is a beautiful, melancholic tribute to the sea." },
+    { id: "rev-49", name: "Matthew Mitchell", location: "Phoenix, USA", rating: 5, text: "The 'Desert Mirage' piece captures the heat and atmosphere beautifully. A highly skilled artist with a fantastic vision." },
+    { id: "rev-50", name: "Divya Kapoor", location: "Kolkata, India", rating: 5, text: "I am absolutely in love with my new painting. The colors are vivid, the composition is perfect, and the delivery was flawlessly handled." }
+];

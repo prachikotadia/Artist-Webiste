@@ -8,6 +8,7 @@ import { Collections } from "@/components/sections/collections";
 import { Exhibitions } from "@/components/sections/exhibitions";
 import { Contact } from "@/components/sections/contact";
 import { MarqueeArtStrip } from "@/components/sections/marquee-art-strip";
+import { ClientReviews } from "@/components/sections/reviews";
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
         <About />
         <Collections />
         <Exhibitions />
+        <ClientReviews />
         <Contact />
       </main>
       <Footer />
