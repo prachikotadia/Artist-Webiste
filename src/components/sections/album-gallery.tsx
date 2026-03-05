@@ -275,8 +275,8 @@ export const AlbumGallery = () => {
                         transition={{ type: "spring", stiffness: 260, damping: 26, mass: 0.9 }}
                         className="fixed inset-0 z-50 bg-cream flex flex-col"
                     >
-                        {/* Detail Header */}
-                        <div className="pt-12 pb-4 px-4 bg-cream/80 backdrop-blur-md sticky top-0 z-10 shrink-0">
+                        {/* Detail Header - Given extra padding to escape z-[100] Navbar */}
+                        <div className="pt-28 md:pt-32 pb-4 px-4 sm:px-8 bg-cream/80 backdrop-blur-md sticky top-0 z-10 shrink-0">
                             <div className="flex items-center mb-1">
                                 <button
                                     onClick={() => setSelectedAlbum(null)}
