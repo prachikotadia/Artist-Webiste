@@ -6,20 +6,20 @@ import { FanWheel } from "@/components/sections/FanWheel";
 
 // Use the exact artworks from the original fan-wheel-section
 const fanWheelArtworks = [
-    { id: "1", title: "Skyline Study", year: "2024", medium: "Acrylic", size: "18x24", status: "Available", image: "/images/art-01.jpg" },
-    { id: "2", title: "Silent Horizon", year: "2022", medium: "Oil", size: "36x36", status: "Sold", image: "/images/art-02.jpg" },
-    { id: "3", title: "Golden Hour", year: "2024", medium: "Oil", size: "24x30", status: "Available", image: "/images/art-03.jpg" },
-    { id: "4", title: "Whispering Pines", year: "2023", medium: "Charcoal", size: "40x50", status: "Available", image: "/images/art-04.jpg" },
-    { id: "5", title: "Tide Pool", year: "2021", medium: "Watercolor", size: "18x24", status: "Sold", image: "/images/art-05.jpg" },
-    { id: "6", title: "Urban Geometry", year: "2024", medium: "Mixed Media", size: "60x72", status: "Available", image: "/images/art-06.jpg" },
-    { id: "7", title: "Symphony in Blue", year: "2022", medium: "Oil", size: "30x40", status: "Sold", image: "/images/art-07.jpg" },
-    { id: "8", title: "Autumn Canopy", year: "2023", medium: "Acrylic", size: "36x48", status: "Available", image: "/images/art-08.jpg" },
-    { id: "9", title: "Desert Mirage", year: "2022", medium: "Pastel", size: "24x24", status: "Available", image: "/images/art-09.jpg" },
-    { id: "10", title: "Ocean's Edge", year: "2024", medium: "Oil", size: "30x40", status: "Sold", image: "/images/art-10.jpg" },
-    { id: "11", title: "Winter Silence", year: "2023", medium: "Acrylic", size: "18x24", status: "Available", image: "/images/art-11.jpg" },
-    { id: "12", title: "Spring Awakening", year: "2024", medium: "Watercolor", size: "22x30", status: "Available", image: "/images/art-12.jpg" },
-    { id: "13", title: "Midnight Sun", year: "2022", medium: "Mixed Media", size: "36x48", status: "Sold", image: "/images/art-01.jpg" },
-    { id: "14", title: "Morning Mist", year: "2023", medium: "Oil", size: "24x36", status: "Available", image: "/images/art-02.jpg" },
+    { id: "1", title: "Urban Face", year: "2024", medium: "Acrylic", size: "18x24", status: "Available", image: "/images/paintings/MenFaces.jpg" },
+    { id: "2", title: "Eternal Rhythm", year: "2022", medium: "Oil", size: "36x36", status: "Sold", image: "/images/paintings/RadhaKrishna1.jpg" },
+    { id: "3", title: "Divine Love", year: "2024", medium: "Oil", size: "24x30", status: "Available", image: "/images/paintings/RadhaKrishna3.jpg" },
+    { id: "4", title: "Flute Echoes", year: "2023", medium: "Charcoal", size: "40x50", status: "Available", image: "/images/paintings/RadhaKrishna5.jpg" },
+    { id: "5", title: "Serene Aura", year: "2021", medium: "Watercolor", size: "18x24", status: "Sold", image: "/images/paintings/LordShiva2.jpg" },
+    { id: "6", title: "Piano Melody", year: "2024", medium: "Mixed Media", size: "60x72", status: "Available", image: "/images/paintings/Piano1.jpg" },
+    { id: "7", title: "Vibrant Expression", year: "2022", medium: "Oil", size: "30x40", status: "Sold", image: "/images/paintings/ChamChino1.jpg" },
+    { id: "8", title: "Heartfelt Colors", year: "2023", medium: "Acrylic", size: "36x48", status: "Available", image: "/images/paintings/HeartFinal.jpg" },
+    { id: "9", title: "String Dynamics", year: "2022", medium: "Pastel", size: "24x24", status: "Available", image: "/images/paintings/StringArt1.jpg" },
+    { id: "10", title: "Sacred Form", year: "2024", medium: "Oil", size: "30x40", status: "Sold", image: "/images/paintings/PramukhSwamiMaharaj.jpg" },
+    { id: "11", title: "Portrait Study", year: "2023", medium: "Acrylic", size: "18x24", status: "Available", image: "/images/paintings/ParthPapaPortrait.jpg" },
+    { id: "12", title: "Women Gathering", year: "2024", medium: "Watercolor", size: "22x30", status: "Available", image: "/images/paintings/4Womens.jpg" },
+    { id: "13", title: "Abstract Motion", year: "2022", medium: "Mixed Media", size: "36x48", status: "Sold", image: "/images/paintings/MixMedia2.jpg" },
+    { id: "14", title: "Vivid Illusion", year: "2023", medium: "Oil", size: "24x36", status: "Available", image: "/images/paintings/RK1.jpg" },
 ];
 
 export function HomeHero() {
