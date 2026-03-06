@@ -32,7 +32,7 @@ export function HomeHero() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut" }}
-                className="w-full relative z-30 shrink-0 -mt-48 sm:-mt-56 md:-mt-10 pointer-events-none"
+                className="w-full relative z-30 shrink-0 -mt-24 sm:-mt-32 md:-mt-8 pointer-events-none"
             >
                 <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#FDFBF7] to-transparent z-40 pointer-events-none" />
                 <div className="pointer-events-auto">
@@ -54,7 +54,7 @@ export function HomeHero() {
             </div>
 
             {/* Text Content - Positioned UP directly into the negative space of the wheel */}
-            <div className="container mx-auto px-4 md:px-6 relative z-[60] w-full flex flex-col items-center text-center -mt-[100px] md:-mt-[220px] pointer-events-none pb-10">
+            <div className="container mx-auto px-4 md:px-6 relative z-[60] w-full flex flex-col items-center text-center -mt-[60px] md:-mt-[200px] pointer-events-none pb-10">
 
                 {/* Main Typography Headline */}
                 <motion.div
