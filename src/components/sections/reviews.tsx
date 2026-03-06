@@ -1,17 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, PanInfo } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { clientReviews, Review } from "@/data/reviews";
 
 import { useState, useEffect } from "react";
 
 const glassHues = [
-    "bg-sky-400/30",
-    "bg-emerald-400/30",
-    "bg-amber-400/30",
-    "bg-purple-400/30",
-    "bg-rose-400/30"
+    "bg-sky-400/50",
+    "bg-emerald-400/50",
+    "bg-amber-400/50",
+    "bg-purple-400/50",
+    "bg-rose-400/50"
 ];
 
 const ReviewCard = ({ review, index }: { review: Review; index: number }) => {
@@ -21,27 +21,27 @@ const ReviewCard = ({ review, index }: { review: Review; index: number }) => {
         <div className="w-[85vw] sm:w-[500px] shrink-0 relative group h-full mr-4 sm:mr-8 transition-all duration-500 hover:scale-[1.02]">
 
             {/* Very Subtle Ambient Hue Orb behind the card */}
-            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 blur-[60px] rounded-full -z-10 transition-all duration-500 ${hue} opacity-40 group-hover:opacity-70`} />
+            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 blur-[80px] rounded-full -z-10 transition-all duration-500 ${hue} opacity-60 group-hover:opacity-100`} />
 
-            {/* Ultra-Transparent Premium Glass Card */}
-            <div className="h-full bg-white/40 backdrop-blur-xl border border-white/60 rounded-[2.5rem] p-8 sm:p-10 flex flex-col justify-between overflow-hidden relative shadow-[inset_0_1px_1px_rgba(255,255,255,0.8),0_8px_32px_rgba(0,0,0,0.05)] text-stone-900">
+            {/* Ultra-Transparent Premium Light Glass Card */}
+            <div className="h-full bg-white/40 backdrop-blur-3xl border border-white/80 rounded-[2.5rem] p-8 sm:p-10 flex flex-col justify-between overflow-hidden relative shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_8px_32px_rgba(0,0,0,0.04)] text-stone-900 group-hover:bg-white/50 transition-colors duration-500">
 
                 <div className="relative z-10">
-                    <div className="flex gap-1 text-amber-500 drop-shadow-[0_0_4px_rgba(245,158,11,0.3)] mb-6">
+                    <div className="flex gap-1 text-amber-500/90 drop-shadow-sm mb-6">
                         {[...Array(review.rating)].map((_, i) => (
                             <Star key={i} size={18} fill="currentColor" strokeWidth={0} />
                         ))}
                     </div>
-                    <p className="text-stone-800 text-base sm:text-lg italic leading-relaxed font-serif tracking-wide">
-                        "{review.text}"
+                    <p className="text-stone-700 text-base sm:text-lg italic leading-relaxed font-serif tracking-wide">
+                        &quot;{review.text}&quot;
                     </p>
                 </div>
 
-                <div className="relative z-10 mt-8 pt-6 border-t border-stone-300 flex flex-col">
+                <div className="relative z-10 mt-8 pt-6 border-t border-stone-200 flex flex-col">
                     <span className="font-semibold text-stone-900 tracking-widest uppercase font-sans text-sm sm:text-[15px]">
                         {review.name}
                     </span>
-                    <span className="text-stone-500 text-xs sm:text-sm mt-1 uppercase tracking-wider font-medium">
+                    <span className="text-stone-400 text-xs sm:text-sm mt-1 uppercase tracking-wider font-medium">
                         {review.location}
                     </span>
                 </div>
@@ -86,7 +86,7 @@ export function ClientReviews() {
         }
     }, [currentIndex]);
 
-    const handleDragEnd = (e: any, { offset }: any) => {
+    const handleDragEnd = (e: MouseEvent | TouchEvent | PointerEvent, { offset }: PanInfo) => {
         const swipe = offset.x;
         // Swipe left (next)
         if (swipe < -50) {
@@ -102,25 +102,25 @@ export function ClientReviews() {
     const prevReview = () => setCurrentIndex((prev) => Math.max(prev - 1, 0));
 
     return (
-        <section className="py-24 sm:py-32 relative overflow-hidden flex flex-col justify-center min-h-[80vh] bg-transparent">
+        <section className="py-24 sm:py-32 relative overflow-hidden flex flex-col justify-center min-h-[80vh] bg-[#F8F9FA] z-10">
 
-            {/* Light Grid Background with Smooth Blending Mask */}
-            <div className="absolute inset-0 bg-[#FAF9F6] [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] pointer-events-none -z-30" />
+            {/* Light Grid Background */}
+            <div className="absolute inset-0 bg-[#F8F9FA] pointer-events-none -z-30" />
 
-            {/* Geometric Grid Pattern Overlay with Smooth Blending Mask */}
+            {/* Geometric Grid Pattern Overlay */}
             <div
-                className="absolute inset-0 opacity-10 pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] -z-20"
+                className="absolute inset-0 opacity-[0.03] pointer-events-none -z-20"
                 style={{
                     backgroundImage: `
-                        linear-gradient(to right, rgba(0,0,0,0.3) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(0,0,0,0.3) 1px, transparent 1px)
+                        linear-gradient(to right, #000 1px, transparent 1px),
+                        linear-gradient(to bottom, #000 1px, transparent 1px)
                     `,
                     backgroundSize: '4rem 4rem'
                 }}
             />
 
             {/* Subtle Center Glow to gently illuminate the sheer glass layer */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[500px] bg-white/60 rounded-full blur-[100px] pointer-events-none [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] -z-10" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[500px] bg-white rounded-full blur-[100px] pointer-events-none -z-10" />
 
             <div className="container mx-auto px-6 mb-12 sm:mb-20 text-center relative z-20">
                 <motion.div
@@ -172,14 +172,14 @@ export function ClientReviews() {
                 {/* Manual Swipe Controls */}
                 <button
                     onClick={prevReview}
-                    className="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-white/60 bg-white/40 backdrop-blur-2xl flex items-center justify-center text-stone-700 hover:bg-white hover:text-stone-900 hover:scale-110 transition-all z-30 shadow-[0_8px_32px_rgba(0,0,0,0.05)]"
+                    className="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-white bg-white/80 backdrop-blur-2xl flex items-center justify-center text-stone-600 hover:bg-white hover:text-stone-900 hover:scale-110 transition-all z-30 shadow-[0_8px_32px_rgba(0,0,0,0.05)]"
                     aria-label="Previous Review"
                 >
                     <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
                 </button>
                 <button
                     onClick={nextReview}
-                    className="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-white/60 bg-white/40 backdrop-blur-2xl flex items-center justify-center text-stone-700 hover:bg-white hover:text-stone-900 hover:scale-110 transition-all z-30 shadow-[0_8px_32px_rgba(0,0,0,0.05)]"
+                    className="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 rounded-full border border-white bg-white/80 backdrop-blur-2xl flex items-center justify-center text-stone-600 hover:bg-white hover:text-stone-900 hover:scale-110 transition-all z-30 shadow-[0_8px_32px_rgba(0,0,0,0.05)]"
                     aria-label="Next Review"
                 >
                     <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />

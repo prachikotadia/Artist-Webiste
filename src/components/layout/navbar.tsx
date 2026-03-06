@@ -38,7 +38,7 @@ export function Navbar() {
     return (
         <>
             <header
-                className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${isScrolled ? "py-4 bg-white/40 backdrop-blur-xl border-b border-white/20 shadow-[0_4px_30px_rgba(0,0,0,0.03)]" : "py-6 bg-transparent"
+                className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled ? "py-1.5 lg:py-2.5 bg-white/40 backdrop-blur-3xl border-b border-white/60 shadow-[inset_0_-1px_1px_rgba(255,255,255,0.6),0_8px_32px_rgba(0,0,0,0.05)]" : "py-3 lg:py-4 bg-transparent"
                     }`}
             >
                 <div className="container mx-auto px-6 flex items-center justify-between">
@@ -51,7 +51,7 @@ export function Navbar() {
                         className="relative z-[110] flex items-center justify-center group"
                     >
                         {/* Logo without any box/glassmorphism background */}
-                        <div className="relative flex items-center justify-center w-24 h-24 md:w-32 md:h-32 transition-transform duration-500 group-hover:scale-105 active:scale-95">
+                        <div className="relative flex items-center justify-center w-10 h-10 md:w-12 md:h-12 transition-transform duration-500 group-hover:scale-105 active:scale-95">
                             {/* Inner mix-blend image with a radial mask to softly fade the corners */}
                             <div
                                 className="relative w-full h-full mix-blend-multiply overflow-hidden"
@@ -114,10 +114,10 @@ export function Navbar() {
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="fixed inset-0 z-[120] bg-cream flex flex-col items-center justify-center"
+                        initial={{ opacity: 0, y: -20, backdropFilter: "blur(0px)" }}
+                        animate={{ opacity: 1, y: 0, backdropFilter: "blur(24px)" }}
+                        exit={{ opacity: 0, y: -20, backdropFilter: "blur(0px)" }}
+                        className="fixed inset-0 z-[120] bg-white/70 flex flex-col items-center justify-center border-b border-white/50"
                     >
                         <button
                             className="absolute top-6 right-6 p-2 lg:hidden"
