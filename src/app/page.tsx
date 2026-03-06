@@ -22,7 +22,7 @@ export default function Home() {
         </div>
 
         {/* Mobile Marquee (Hidden on Desktop, placed AFTER FanWheel) */}
-        <div className="block md:hidden mt-8">
+        <div className="block md:hidden">
           <MarqueeArtStrip />
         </div>
 

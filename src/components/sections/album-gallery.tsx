@@ -250,7 +250,7 @@ export const AlbumGallery = () => {
     };
 
     return (
-        <section id="gallery" className="py-24 bg-cream relative min-h-screen">
+        <section id="gallery" className="pt-12 pb-24 md:pt-16 bg-cream relative min-h-screen">
             {/* Gallery Albums Grid View */}
             <div className="max-w-7xl mx-auto w-full px-2 sm:px-6 lg:px-8">
                 <div className="text-center mb-10 sm:mb-16">

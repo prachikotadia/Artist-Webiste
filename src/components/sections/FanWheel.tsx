@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 // Default Mobile Configuration
 const DEFAULT_LAYOUT = {
-    radius: 220,
+    radius: 250,
     cardWidth: 100,
     cardHeight: 140,
     containerHeight: 420,

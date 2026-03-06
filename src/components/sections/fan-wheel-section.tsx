@@ -21,8 +21,8 @@ const artworks = [
 
 export function FanWheelSection() {
     return (
-        <section className="relative w-full overflow-hidden bg-[#F9F9F9] pt-12 md:pt-20 pb-10 min-h-[750px] md:min-h-[800px] flex flex-col justify-between">
-            <div className="w-full px-8 text-center z-10 pointer-events-none mt-2 md:mt-8">
+        <section className="relative w-full overflow-hidden bg-[#F9F9F9] pt-12 md:pt-20 pb-10 min-h-[750px] md:min-h-[800px] flex flex-col justify-between -mt-16 md:-mt-32 relative z-10">
+            <div className="w-full px-8 text-center z-20 pointer-events-none mt-2 md:mt-8">
                 <h2 className="text-4xl md:text-5xl font-serif text-ink mb-3">Interactive Gallery</h2>
                 <p className="text-ink/60 text-sm md:text-base max-w-sm mx-auto">Swipe to explore the latest pieces or let it spin automatically.</p>
             </div>

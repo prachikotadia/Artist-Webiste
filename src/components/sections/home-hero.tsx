@@ -24,7 +24,7 @@ const fanWheelArtworks = [
 
 export function HomeHero() {
     return (
-        <section id="home" className="pt-0 relative overflow-hidden flex flex-col items-center justify-start min-h-screen bg-[#FDFBF7]">
+        <section id="home" className="pt-0 relative overflow-hidden flex flex-col items-center justify-start bg-[#FDFBF7] pb-0 md:pb-8">
 
             {/* FanWheel arches OVER the text */}
             {/* FanWheel arches OVER the text */}
@@ -32,7 +32,7 @@ export function HomeHero() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeOut" }}
-                className="w-full relative z-30 shrink-0 -mt-24 sm:-mt-32 md:-mt-8 pointer-events-none"
+                className="w-full relative z-30 shrink-0 -mt-2 sm:-mt-24 md:-mt-8 pointer-events-none"
             >
                 <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-[#FDFBF7] to-transparent z-40 pointer-events-none" />
                 <div className="pointer-events-auto">
@@ -87,13 +87,12 @@ export function HomeHero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-                    className="mt-6 md:mt-8 mb-12 md:mb-16 pointer-events-auto"
+                    className="mt-6 md:mt-8 mb-4 pointer-events-auto"
                 >
                     <button className="bg-[#2A2D34] hover:bg-[#1C1C1C] text-white px-8 md:px-10 py-3.5 md:py-4 rounded-full font-medium transition-colors flex items-center justify-center gap-2 text-sm md:text-base shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
                         Start Exploring Now <span className="text-lg">→</span>
                     </button>
                 </motion.div>
-
 
             </div>
         </section>
